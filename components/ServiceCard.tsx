@@ -15,7 +15,9 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div className="rounded-card border border-bone bg-white p-md">
-      <Icon className="h-6 w-6 text-navy" strokeWidth={1.75} aria-hidden="true" />
+      <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy-50">
+        <Icon className="h-5 w-5 text-navy" strokeWidth={1.75} aria-hidden="true" />
+      </div>
       <h3 className="mt-3 text-h4 text-black">{title}</h3>
       <p className="mt-1.5 text-body text-graphite">{description}</p>
       <a

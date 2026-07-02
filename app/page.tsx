@@ -1,16 +1,7 @@
-import {
-  FileX,
-  Clock,
-  EyeOff,
-  Search,
-  BarChart3,
-  RefreshCw,
-  GraduationCap,
-  LifeBuoy,
-} from "lucide-react";
+import Link from "next/link";
+import { FileX, Clock, EyeOff, Search, BarChart3, GraduationCap, LifeBuoy } from "lucide-react";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
-import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import ProcessSteps from "@/components/ProcessSteps";
 import Testimonial from "@/components/Testimonial";
@@ -34,6 +25,11 @@ const problems = [
   },
 ];
 
+// Antes había dos secciones separadas ("Cómo trabajamos" y "Cómo te
+// ayudamos") que repetían contenido casi literal (p.ej. "Diagnóstico" en
+// las dos). Se fusionan en un único proceso de 4 pasos que ya incorpora
+// los servicios (dashboards + automatización van juntos en el paso 2), con
+// un enlace a /servicios para quien quiera el detalle de cada uno.
 const steps = [
   {
     icon: Search,
@@ -42,8 +38,9 @@ const steps = [
   },
   {
     icon: BarChart3,
-    title: "Implementación",
-    description: "Construimos los dashboards conectados a tus datos reales.",
+    title: "Dashboards y automatización",
+    description:
+      "Construimos tus dashboards en Power BI y automatizamos los informes, conectados a tus datos reales.",
   },
   {
     icon: GraduationCap,
@@ -57,36 +54,15 @@ const steps = [
   },
 ];
 
-const services = [
-  {
-    icon: Search,
-    title: "Diagnóstico",
-    description: "Qué datos tienes y qué decisiones podrían mejorar.",
-    href: "/servicios#diagnostico",
-  },
-  {
-    icon: BarChart3,
-    title: "Dashboards",
-    description: "Tu negocio en un panel claro, actualizado solo.",
-    href: "/servicios#dashboards",
-  },
-  {
-    icon: RefreshCw,
-    title: "Automatización",
-    description: "Sin copiar y pegar informes nunca más.",
-    href: "/servicios#automatizacion",
-  },
-];
-
 export default function Home() {
   return (
     <>
-      {/* Hero — Fase 4: propuesta de valor + doble CTA + franja de confianza */}
+      {/* Hero — Fase 4: propuesta de valor + doble CTA + carrusel de dashboard */}
       <Hero />
 
       {/* Problema → agitación */}
-      <section className="py-xl-mobile md:py-xl">
-        <Container>
+      <section className="rounded-section border border-black/10 bg-white p-lg shadow-card md:p-xl-mobile">
+        <Container className="!px-0">
           <p className="text-center text-ui text-graphite">
             Pymes de retail, servicios y distribución ya deciden con datos
             claros
@@ -112,34 +88,33 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Cómo trabajamos — antes solo visible en /nosotros; sube a Inicio
-          para reducir fricción antes del CTA (Fase 4) */}
-      <section id="como-trabajamos" className="scroll-mt-16 bg-bone/40 py-xl-mobile md:py-xl">
-        <Container className="mb-md text-center">
-          <h2 className="text-h2Mobile text-black md:text-h2">
-            Cómo trabajamos
-          </h2>
-        </Container>
-        <ProcessSteps steps={steps} />
-      </section>
-
-      {/* Servicios (resumen) */}
-      <section className="py-xl-mobile md:py-xl">
-        <Container>
-          <h2 className="text-center text-h2Mobile text-black md:text-h2">
-            Cómo te ayudamos
-          </h2>
-          <div className="mt-md grid grid-cols-1 gap-4 md:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
-            ))}
+      {/* Cómo trabajamos — fusiona proceso + servicios (antes eran dos
+          secciones separadas y repetían contenido) */}
+      <section
+        id="como-trabajamos"
+        className="scroll-mt-16 rounded-section border border-black/10 bg-bone/40 p-lg shadow-card md:p-xl-mobile"
+      >
+        <Container className="!px-0">
+          <div className="mb-md text-center">
+            <h2 className="text-h2Mobile text-black md:text-h2">
+              Cómo trabajamos contigo
+            </h2>
           </div>
+          <ProcessSteps steps={steps} />
+          <p className="mt-6 text-center text-ui text-graphite">
+            <Link
+              href="/servicios"
+              className="text-navy hover:underline underline-offset-4"
+            >
+              Ver el detalle de cada servicio →
+            </Link>
+          </p>
         </Container>
       </section>
 
       {/* Caso de éxito destacado */}
-      <section className="bg-bone py-xl-mobile md:py-xl">
-        <Container>
+      <section className="rounded-section border border-black/10 bg-bone p-lg shadow-card md:p-xl-mobile">
+        <Container className="!px-0">
           <h2 className="text-center text-h2Mobile text-black md:text-h2">
             Caso de éxito
           </h2>
@@ -156,8 +131,8 @@ export default function Home() {
 
       {/* Testimonio — primera prueba social real de la home (Fase 4).
           Sustituir por una cita real del cliente piloto antes de publicar. */}
-      <section className="py-xl-mobile md:py-xl">
-        <Container>
+      <section className="rounded-section border border-black/10 bg-canvas p-lg shadow-card md:p-xl-mobile">
+        <Container className="!px-0">
           <Testimonial
             quote="Por fin miramos un solo panel cada mañana en vez de perseguir cinco Excels distintos."
             author="Dirección general"
@@ -167,8 +142,8 @@ export default function Home() {
       </section>
 
       {/* CTA final */}
-      <section className="bg-navy py-xl-mobile md:py-xl">
-        <Container className="text-center">
+      <section className="rounded-section border border-black/10 bg-navy p-lg shadow-card md:p-xl-mobile">
+        <Container className="!px-0 text-center">
           <h2 className="text-h2Mobile text-white md:text-h2">
             ¿Listo para decidir con datos claros?
           </h2>

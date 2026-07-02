@@ -58,20 +58,6 @@ const services = [
     ctaHref: "/contacto",
   },
   {
-    id: "formacion",
-    icon: GraduationCap,
-    title: "Formación y adopción",
-    problem:
-      "Tienes dashboards, pero tu equipo no los usa con autonomía y sigue pidiéndote informes.",
-    includes: [
-      "Sesiones prácticas con tu equipo",
-      "Documentación clara y a medida",
-      "Soporte durante las primeras semanas de uso",
-    ],
-    ctaLabel: "Preguntar por formación",
-    ctaHref: "/contacto",
-  },
-  {
     id: "mantenimiento",
     icon: LifeBuoy,
     title: "Mantenimiento y soporte continuo",

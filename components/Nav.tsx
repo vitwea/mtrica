@@ -1,17 +1,18 @@
 import Link from "next/link";
-import Container from "./Container";
 import Button from "./Button";
 import MobileNav from "./MobileNav";
 
-// Nav — Fase 4: se quita "Nosotros" del menú (feedback: la gente quiere ver
-// resultados, no una página institucional). "Casos" se añadirá aquí cuando
-// haya al menos 3 proyectos reales publicados (ver README, Fase 4).
+// Nav — Fase 4: tarjeta redondeada propia, sin sticky (se probó y se
+// descartó: el botón "volver arriba" cubre esa necesidad sin fijar la barra).
+// "Nosotros" queda fuera del menú (feedback: la gente quiere ver resultados,
+// no una página institucional). "Casos" se añadirá aquí cuando haya al menos
+// 3 proyectos reales (README).
 export default function Nav() {
   return (
-    <header className="border-b border-bone px-[20px]">
-      <div className="flex items-center justify-between py-5 px-2px">
-        <Link href="/" className="text-3xl font-bold text-black">
-          mtrica
+    <header className="rounded-section border border-black/10 bg-white px-5 shadow-card md:px-8">
+      <div className="flex items-center justify-between py-5">
+        <Link href="/" className="text-4xl font-bold text-black">
+          Mtrica
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

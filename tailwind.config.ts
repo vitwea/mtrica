@@ -13,24 +13,35 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: "#28354F", // color de marca — CTAs, enlaces, acentos
-          hover: "#1D2740", // hover de botón primario (~15% más oscuro)
-          tint: "#E7ECF3", // gris azulado muy claro, derivado del navy — lienzo exterior
+          50: "#E7ECF3",
+          100: "#C7D1E0",
+          DEFAULT: "#28354F",
+          hover: "#1D2740",
         },
-        bone: "#E0E0DB", // fondo alterno / tarjetas
-        graphite: "#2A2829", // texto secundario
+
+        // Fondo exterior — ahora con contraste real
+        canvas: "#CFC8BE",
+
+        // Tarjetas — más claras que el canvas
+        bone: "#E0E0DB",
+
+        graphite: "#2A2829",
+
         success: {
-          DEFAULT: "#3F6B4E", // texto sobre fondo claro (p.ej. tarjetas blancas)
-          light: "#7BC49B", // texto sobre fondo navy/oscuro
+          DEFAULT: "#3F6B4E",
+          light: "#7BC49B",
         },
+
         alert: {
-          DEFAULT: "#A56A2E", // texto sobre fondo claro
-          light: "#E2A876", // texto sobre fondo navy/oscuro
+          DEFAULT: "#A56A2E",
+          light: "#E2A876",
         },
       },
+
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
+
       fontSize: {
         h1: ["48px", { lineHeight: "56px", fontWeight: "700" }],
         h1Mobile: ["34px", { lineHeight: "40px", fontWeight: "700" }],
@@ -43,6 +54,7 @@ const config: Config = {
         ui: ["14px", { lineHeight: "20px", fontWeight: "500" }],
         caption: ["12px", { lineHeight: "16px", fontWeight: "400" }],
       },
+
       spacing: {
         xs: "8px",
         sm: "16px",
@@ -51,18 +63,28 @@ const config: Config = {
         xl: "96px",
         "xl-mobile": "64px",
       },
+
       borderRadius: {
         card: "12px",
+        section: "24px", // radio de las tarjetas de sección (Nav, Hero, cada bloque, Footer)
       },
+
+      // Sombra premium (más suave y elegante)
+      boxShadow: {
+        card: "0 1px 2px rgba(0,0,0,0.04), 0 16px 40px -20px rgba(0,0,0,0.18)",
+      },
+
       maxWidth: {
         content: "1200px",
       },
+
       keyframes: {
         fadein: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
       },
+
       animation: {
         fadein: "fadein 0.4s ease",
       },

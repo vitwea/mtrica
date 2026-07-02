@@ -7,27 +7,28 @@ import DashboardPreview from "./DashboardPreview";
 // dashboard a la derecha.
 export default function Hero() {
   return (
-    <section className="border-b border-black/10 bg-bone/40">
-      <Container className="py-lg md:py-l-mobile">
-        <div className="text-center">
-          <p className="text-body font-semibold uppercase tracking-wide text-navy">
-            Power BI · Automatización de informes · Para pymes
-          </p>
+    <section className="rounded-section border border-black/20 bg-bone shadow-card">
 
-          <h1 className="mx-auto mt-1 text-h1Mobile text-black md:text-h1">
+      <Container className="py-lg md:py-xl-mobile">
+        <div className="text-center">
+          <span className="inline-block rounded-full bg-navy-50 px-4 py-1.5 text-ui font-semibold uppercase tracking-wide text-navy">
+            Power BI · Automatización de informes · Para pymes
+          </span>
+
+          <h1 className="mx-auto mt-4 text-h1Mobile text-black md:text-h2">
             Automatizamos tus informes y creamos dashboards en Power BI para
             que decidas en minutos
           </h1>
         </div>
 
         <div className="mt-10 grid grid-cols-1 items-center gap-8 md:grid-cols-[1fr_1.1fr] md:gap-10">
-          <div className="text-center mx-auto">
+          <div>
             <p className="text-bodyLg text-graphite">
               Convertimos los datos dispersos de tu empresa —ventas, stock,
               clientes— en un panel claro que puedes mirar cada mañana.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href="/citas" variant="primary">
                 Analiza tu empresa gratis
               </Button>
@@ -36,7 +37,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            <p className="mt-8 max-w-sm mx-auto text-ui text-graphite">
+            <p className="mt-8 max-w-sm text-ui text-graphite">
               Sin departamentos ni proyectos de seis meses: trabajas
               directamente con quien construye tu dashboard, listo en
               semanas.

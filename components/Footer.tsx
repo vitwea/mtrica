@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Container from "./Container";
 
-// Estructura de footer definida en la Fase 2, sección 3.
+// Footer — Fase 4: ahora es su propia tarjeta redondeada, igual que el Nav
+// y cada sección de la home, en vez de vivir dentro del contenedor único.
 export default function Footer() {
   return (
-    <footer className="border-t border-bone bg-white">
+    <footer className="rounded-section border border-black/10 bg-white shadow-card">
       <Container className="grid grid-cols-2 gap-8 py-lg md:grid-cols-4">
         <div>
-          <p className="text-lg font-bold text-black">mtrica</p>
+          <p className="text-lg font-bold text-black">Mtrica</p>
           <p className="mt-2 text-ui text-graphite">
             Business Intelligence para pymes que quieren decidir con datos claros.
           </p>
