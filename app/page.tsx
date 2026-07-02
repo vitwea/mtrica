@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* Cómo trabajamos — antes solo visible en /nosotros; sube a Inicio
           para reducir fricción antes del CTA (Fase 4) */}
-      <section className="bg-bone/40 py-xl-mobile md:py-xl">
+      <section id="como-trabajamos" className="scroll-mt-16 bg-bone/40 py-xl-mobile md:py-xl">
         <Container className="mb-md text-center">
           <h2 className="text-h2Mobile text-black md:text-h2">
             Cómo trabajamos

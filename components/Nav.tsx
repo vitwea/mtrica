@@ -3,6 +3,9 @@ import Container from "./Container";
 import Button from "./Button";
 import MobileNav from "./MobileNav";
 
+// Nav — Fase 4: se quita "Nosotros" del menú (feedback: la gente quiere ver
+// resultados, no una página institucional). "Casos" se añadirá aquí cuando
+// haya al menos 3 proyectos reales publicados (ver README, Fase 4).
 export default function Nav() {
   return (
     <header className="border-b border-bone px-[20px]">
@@ -14,9 +17,6 @@ export default function Nav() {
         <nav className="hidden items-center gap-7 md:flex">
           <Link href="/servicios" className="text-ui text-graphite hover:text-black">
             Servicios
-          </Link>
-          <Link href="/nosotros" className="text-ui text-graphite hover:text-black">
-            Nosotros
           </Link>
           <Link href="/contacto" className="text-ui text-graphite hover:text-black">
             Contacto

@@ -20,8 +20,13 @@ type Metric = {
 type View = {
   label: string;
   metrics: [Metric, Metric];
-  chartLabel: string;
+  chartTitle: string;
+  chartLegend: [string, string];
+  bars: number[]; // 6 valores, 0-100
+  line: number[]; // 6 valores, 0-100
 };
+
+const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"];
 
 const views: View[] = [
   {
@@ -30,7 +35,10 @@ const views: View[] = [
       { label: "Ventas del mes", value: "48.200 €", delta: "+12% vs anterior", tone: "success" },
       { label: "Stock crítico", value: "3 SKUs", delta: "Revisar hoy", tone: "alert" },
     ],
-    chartLabel: "Previsión de demanda",
+    chartTitle: "Ventas mensuales (€)",
+    chartLegend: ["Real", "Previsión"],
+    bars: [55, 48, 62, 58, 70, 82],
+    line: [50, 52, 58, 63, 68, 78],
   },
   {
     label: "Automatización",
@@ -38,7 +46,10 @@ const views: View[] = [
       { label: "Informes generados", value: "128", delta: "+34% este mes", tone: "success" },
       { label: "Horas ahorradas", value: "22h", delta: "Esta semana", tone: "success" },
     ],
-    chartLabel: "Informes automatizados / semana",
+    chartTitle: "Informes automatizados",
+    chartLegend: ["Generados", "Objetivo"],
+    bars: [30, 42, 38, 55, 60, 74],
+    line: [35, 38, 44, 50, 58, 68],
   },
   {
     label: "Soporte",
@@ -46,11 +57,34 @@ const views: View[] = [
       { label: "Incidencias abiertas", value: "1", delta: "Dentro de SLA", tone: "success" },
       { label: "Tiempo de respuesta", value: "4h", delta: "Objetivo: 24h", tone: "success" },
     ],
-    chartLabel: "Incidencias resueltas / mes",
+    chartTitle: "Incidencias resueltas",
+    chartLegend: ["Resueltas", "Recibidas"],
+    bars: [20, 28, 18, 24, 15, 10],
+    line: [24, 30, 22, 26, 18, 14],
   },
 ];
 
-const ROTATE_MS = 4000;
+const ROTATE_MS = 4500;
+const CHART_W = 260;
+const CHART_H = 90;
+const BAR_GAP = 10;
+
+function barPath(values: number[]) {
+  const barWidth = (CHART_W - BAR_GAP * (values.length - 1)) / values.length;
+  return values.map((v, i) => {
+    const height = (v / 100) * CHART_H;
+    const x = i * (barWidth + BAR_GAP);
+    const y = CHART_H - height;
+    return { x, y, width: barWidth, height };
+  });
+}
+
+function linePoints(values: number[]) {
+  const step = CHART_W / (values.length - 1);
+  return values
+    .map((v, i) => `${i * step},${CHART_H - (v / 100) * CHART_H}`)
+    .join(" ");
+}
 
 export default function DashboardPreview({
   src,
@@ -82,24 +116,28 @@ export default function DashboardPreview({
   }
 
   const view = views[index];
+  const bars = barPath(view.bars);
 
   return (
     <div>
       <div
-        className="rounded-card bg-navy p-5"
+        className="rounded-card bg-navy p-6"
         role="img"
         aria-label={`${alt} — vista: ${view.label}`}
       >
-        <div className="mb-3.5 flex gap-1.5" aria-hidden="true">
-          <span className="h-2 w-2 rounded-full bg-white/25" />
-          <span className="h-2 w-2 rounded-full bg-white/25" />
-          <span className="h-2 w-2 rounded-full bg-white/25" />
+        <div className="mb-4 flex items-center justify-between" aria-hidden="true">
+          <div className="flex gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-white/25" />
+            <span className="h-2 w-2 rounded-full bg-white/25" />
+            <span className="h-2 w-2 rounded-full bg-white/25" />
+          </div>
+          <span className="text-caption text-white/40">{view.label}</span>
         </div>
 
         <div key={view.label} className={reducedMotion ? "" : "animate-fadein"}>
-          <div className="mb-2.5 grid grid-cols-2 gap-2.5" aria-hidden="true">
+          <div className="mb-3 grid grid-cols-2 gap-3" aria-hidden="true">
             {view.metrics.map((metric) => (
-              <div key={metric.label} className="rounded-lg bg-white/10 p-3">
+              <div key={metric.label} className="rounded-lg bg-white/10 p-3.5">
                 <p className="text-caption text-white/60">{metric.label}</p>
                 <p className="mt-1 text-h4 text-white">{metric.value}</p>
                 <p
@@ -113,23 +151,55 @@ export default function DashboardPreview({
             ))}
           </div>
 
-          <div className="rounded-lg bg-white/10 p-3" aria-hidden="true">
-            <p className="mb-2.5 text-caption text-white/60">{view.chartLabel}</p>
-            <svg viewBox="0 0 260 70" className="h-[70px] w-full" preserveAspectRatio="none">
+          <div className="rounded-lg bg-white/10 p-3.5" aria-hidden="true">
+            <div className="mb-2.5 flex items-center justify-between">
+              <p className="text-caption text-white/60">{view.chartTitle}</p>
+              <div className="flex items-center gap-2.5">
+                <span className="flex items-center gap-1 text-caption text-white/50">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#8FB8E8]" />
+                  {view.chartLegend[0]}
+                </span>
+                <span className="flex items-center gap-1 text-caption text-white/50">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#5B6787]" />
+                  {view.chartLegend[1]}
+                </span>
+              </div>
+            </div>
+
+            <svg
+              viewBox={`0 0 ${CHART_W} ${CHART_H}`}
+              className="h-[90px] w-full"
+              preserveAspectRatio="none"
+            >
+              {bars.map((bar, i) => (
+                <rect
+                  key={i}
+                  x={bar.x}
+                  y={bar.y}
+                  width={bar.width}
+                  height={bar.height}
+                  rx="2"
+                  fill="#8FB8E8"
+                  fillOpacity="0.35"
+                />
+              ))}
               <polyline
-                points="0,55 30,48 60,50 90,35 120,38 150,22 180,28 210,14 240,18 260,8"
+                points={linePoints(view.line)}
                 fill="none"
                 stroke="#8FB8E8"
                 strokeWidth="2"
-              />
-              <polyline
-                points="0,60 30,58 60,54 90,50 120,44 150,40 180,32 210,28 240,20 260,15"
-                fill="none"
-                stroke="#5B6787"
-                strokeWidth="1.5"
-                strokeDasharray="3,3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
+
+            <div className="mt-1.5 flex justify-between">
+              {months.map((m) => (
+                <span key={m} className="text-caption text-white/35">
+                  {m}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
