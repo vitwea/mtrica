@@ -1,30 +1,57 @@
-import Image from "next/image";
+import Container from "./Container";
 import Button from "./Button";
+import DashboardPreview from "./DashboardPreview";
 
-// Portada minimalista: foto a pantalla completa con un único eslogan breve
-// centrado. El nav va en la barra blanca aparte (componente Nav), no superpuesto.
+const stats = [
+  { value: "+12", label: "pymes asesoradas" },
+  { value: "+300h", label: "ahorradas al año en informes" },
+];
+
+// Hero — Fase 4 (v2): formato partido, texto + CTA a la izquierda y mockup
+// de dashboard a la derecha, en línea con el lenguaje visual de Stripe/Linear/
+// Notion (producto real en vez de fotografía de stock o fondo decorativo).
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[560px] items-center justify-center overflow-hidden md:min-h-[75vh]">
-      <Image
-        src="/hero.jpg"
-        alt="Escritorio de trabajo con cuadernos, gafas y una taza de café"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-black/45"
-      />
+    <section className="bg-white">
+      <Container className="grid grid-cols-1 items-center gap-10 py-xl-mobile md:grid-cols-2 md:gap-14 md:py-xl">
+        <div>
+          <p className="text-ui font-medium uppercase tracking-wide text-navy">
+            Business intelligence para pymes
+          </p>
 
-      <div className="relative z-10 max-w-xl px-6 text-center">
-        <h1 className="text-h1Mobile text-white md:text-h1">
-          Decide con datos,<br />
-          no con intuición.
-        </h1>
-      </div>
+          <h1 className="mt-4 text-h1Mobile text-black md:text-h1">
+            Convierte los datos de tu empresa en decisiones, no en hojas de
+            cálculo
+          </h1>
+
+          <p className="mt-5 max-w-md text-bodyLg text-graphite">
+            Dashboards a medida y automatización de informes para pymes que
+            quieren dejar de improvisar cada mes.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href="/citas" variant="primary">
+              Solicitar diagnóstico gratuito
+            </Button>
+            <Button href="/proyectos" variant="secondary">
+              Ver casos de éxito
+            </Button>
+          </div>
+
+          <div className="mt-10 flex gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-h4 text-black">{stat.value}</p>
+                <p className="mt-0.5 text-caption text-graphite">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <DashboardPreview />
+      </Container>
     </section>
   );
 }

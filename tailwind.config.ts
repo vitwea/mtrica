@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
 
 // Tokens 1:1 con el documento de Fase 3 (Diseño UX/UI — Mtrica)
+// + colores funcionales (Fase 4): success/alert se usan solo para datos
+// (deltas de métricas, estados en dashboards y casos de éxito), nunca como
+// color de marca ni decorativo, para no diluir la identidad navy/bone/graphite.
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -15,6 +18,14 @@ const config: Config = {
         },
         bone: "#E0E0DB", // fondo alterno / tarjetas
         graphite: "#2A2829", // texto secundario
+        success: {
+          DEFAULT: "#3F6B4E", // texto sobre fondo claro (p.ej. tarjetas blancas)
+          light: "#7BC49B", // texto sobre fondo navy/oscuro
+        },
+        alert: {
+          DEFAULT: "#A56A2E", // texto sobre fondo claro
+          light: "#E2A876", // texto sobre fondo navy/oscuro
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],

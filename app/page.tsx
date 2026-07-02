@@ -1,8 +1,19 @@
-import { FileX, Clock, EyeOff, Search, BarChart3, RefreshCw } from "lucide-react";
+import {
+  FileX,
+  Clock,
+  EyeOff,
+  Search,
+  BarChart3,
+  RefreshCw,
+  GraduationCap,
+  LifeBuoy,
+} from "lucide-react";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
+import ProcessSteps from "@/components/ProcessSteps";
+import Testimonial from "@/components/Testimonial";
 import Button from "@/components/Button";
 
 const problems = [
@@ -20,6 +31,29 @@ const problems = [
     icon: EyeOff,
     title: "Decisiones a ciegas",
     description: "Sabes cómo fue el mes pasado, no cómo va este.",
+  },
+];
+
+const steps = [
+  {
+    icon: Search,
+    title: "Diagnóstico",
+    description: "Vemos qué datos tienes y qué decisiones podrían mejorar.",
+  },
+  {
+    icon: BarChart3,
+    title: "Implementación",
+    description: "Construimos los dashboards conectados a tus datos reales.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Formación",
+    description: "Tu equipo aprende a usarlos con autonomía.",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Soporte continuo",
+    description: "Evolucionamos los paneles a medida que cambia tu negocio.",
   },
 ];
 
@@ -47,11 +81,11 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Hero — Fase 2, sección 2.1 */}
+      {/* Hero — Fase 4: propuesta de valor + doble CTA + franja de confianza */}
       <Hero />
 
-      {/* Problema → solución */}
-      <section className="pb-xl-mobile md:pb-xl">
+      {/* Problema → agitación */}
+      <section className="py-xl-mobile md:py-xl">
         <Container>
           <p className="text-center text-ui text-graphite">
             Pymes de retail, servicios y distribución ya deciden con datos
@@ -78,8 +112,19 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Cómo trabajamos — antes solo visible en /nosotros; sube a Inicio
+          para reducir fricción antes del CTA (Fase 4) */}
+      <section className="bg-bone/40 py-xl-mobile md:py-xl">
+        <Container className="mb-md text-center">
+          <h2 className="text-h2Mobile text-black md:text-h2">
+            Cómo trabajamos
+          </h2>
+        </Container>
+        <ProcessSteps steps={steps} />
+      </section>
+
       {/* Servicios (resumen) */}
-      <section className="bg-bone py-xl-mobile md:py-xl">
+      <section className="py-xl-mobile md:py-xl">
         <Container>
           <h2 className="text-center text-h2Mobile text-black md:text-h2">
             Cómo te ayudamos
@@ -93,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* Caso de éxito destacado */}
-      <section className="py-xl-mobile md:py-xl">
+      <section className="bg-bone py-xl-mobile md:py-xl">
         <Container>
           <h2 className="text-center text-h2Mobile text-black md:text-h2">
             Caso de éxito
@@ -106,6 +151,18 @@ export default function Home() {
               href="/proyectos/pyme-retail-dashboard-ventas"
             />
           </div>
+        </Container>
+      </section>
+
+      {/* Testimonio — primera prueba social real de la home (Fase 4).
+          Sustituir por una cita real del cliente piloto antes de publicar. */}
+      <section className="py-xl-mobile md:py-xl">
+        <Container>
+          <Testimonial
+            quote="Por fin miramos un solo panel cada mañana en vez de perseguir cinco Excels distintos."
+            author="Dirección general"
+            role="Pyme de distribución"
+          />
         </Container>
       </section>
 

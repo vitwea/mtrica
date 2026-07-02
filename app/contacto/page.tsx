@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
 
@@ -23,35 +22,9 @@ export default function Contacto() {
           </p>
         </div>
 
-        <div className="mt-lg grid grid-cols-1 gap-10 md:grid-cols-[1.2fr_1fr]">
-          <ContactForm />
-
-          <div className="flex flex-col gap-6">
-            <div>
-              <p className="text-ui font-medium text-black">Email directo</p>
-              <a
-                href="mailto:hola@mtrica.com"
-                className="mt-1 inline-block text-body text-navy hover:underline underline-offset-4"
-              >
-                hola@mtrica.com
-              </a>
-            </div>
-
-            <div className="rounded-card border border-bone bg-bone/40 p-md">
-              <p className="text-ui font-medium text-black">
-                ¿Prefieres reservar directamente?
-              </p>
-              <p className="mt-1.5 text-body text-graphite">
-                Salta el formulario y elige tú mismo un hueco de 30 minutos
-                para el diagnóstico gratuito.
-              </p>
-              <Link
-                href="/citas"
-                className="mt-3 inline-block text-ui font-medium text-navy hover:underline underline-offset-4"
-              >
-                Ir a Citas →
-              </Link>
-            </div>
+        <div className="mt-lg flex justify-center">
+          <div className="w-full max-w-md">
+            <ContactForm />
           </div>
         </div>
       </Container>
