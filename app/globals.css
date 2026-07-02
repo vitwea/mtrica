@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-black antialiased;
+  }
+
+  /* Foco visible y consistente en toda la web (Fase 3, sección 8) */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #28354F;
+    outline-offset: 2px;
+  }
+}
