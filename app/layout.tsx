@@ -23,9 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} bg-[#F5F5F3] font-sans`}>
+      {/* Fondo exterior en navy-tint (gris azulado claro derivado del navy;
+          antes bone, que quedaba más cálido/tradicional) para reforzar el
+          aire "tech" y que la tarjeta redondeada siga notándose — Fase 4 */}
+      <body className={`${inter.variable} bg-navy-tint font-sans`}>
         <div className="mx-auto max-w-[1600px] p-3 md:p-5">
-          <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white">
+          <div className="overflow-hidden rounded-[28px] border border-black/15 bg-white">
             <Nav />
             <main>{children}</main>
             <Footer />

@@ -7,12 +7,13 @@ const stats = [
   { value: "+300h", label: "ahorradas al año en informes" },
 ];
 
-// Hero — Fase 4 (v2): formato partido, texto + CTA a la izquierda y mockup
-// de dashboard a la derecha, en línea con el lenguaje visual de Stripe/Linear/
-// Notion (producto real en vez de fotografía de stock o fondo decorativo).
+// Hero — Fase 4 (v3): formato partido sobre fondo bone (en vez de blanco
+// puro, que quedaba plano) con borde inferior reforzado para marcar la
+// transición a la siguiente sección con más claridad que el border-bone
+// por defecto, que se pierde sobre fondos claros.
 export default function Hero() {
   return (
-    <section className="bg-white">
+    <section className="border-b border-black/10 bg-bone/40">
       <Container className="grid grid-cols-1 items-center gap-10 py-xl-mobile md:grid-cols-2 md:gap-14 md:py-xl">
         <div>
           <p className="text-ui font-medium uppercase tracking-wide text-navy">

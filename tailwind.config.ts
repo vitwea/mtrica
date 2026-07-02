@@ -15,6 +15,7 @@ const config: Config = {
         navy: {
           DEFAULT: "#28354F", // color de marca — CTAs, enlaces, acentos
           hover: "#1D2740", // hover de botón primario (~15% más oscuro)
+          tint: "#E7ECF3", // gris azulado muy claro, derivado del navy — lienzo exterior
         },
         bone: "#E0E0DB", // fondo alterno / tarjetas
         graphite: "#2A2829", // texto secundario
@@ -55,6 +56,15 @@ const config: Config = {
       },
       maxWidth: {
         content: "1200px",
+      },
+      keyframes: {
+        fadein: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        fadein: "fadein 0.4s ease",
       },
     },
   },
