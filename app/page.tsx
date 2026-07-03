@@ -133,7 +133,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Caso de éxito destacado — white; tarjeta en mist (ver ProjectCard.tsx) */}
+       {/* Caso de éxito destacado — white; tarjeta en mist (ver ProjectCard.tsx) */}
       <section className="rounded-section border border-black/10 bg-white p-lg shadow-card md:p-xl-mobile">
         <Container className="!px-0">
           <h2 className="text-center text-h2Mobile text-black md:text-h2">
@@ -150,7 +150,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Testimonio — bone; comillas, escala y avatar en Testimonial.tsx */}
+      {/* Testimonio — bone; comillas, escala y avatar en Testimonial.tsx 
       <section className="rounded-section border border-black/10 bg-bone p-lg shadow-card md:p-xl-mobile">
         <Container className="!px-0">
           <Testimonial
@@ -159,10 +159,10 @@ export default function Home() {
             role="Pyme de distribución"
           />
         </Container>
-      </section>
+      </section>*/}
 
-      {/* CTA final — navy-950, cierra el bookend con el hero */}
-      <section className="rounded-section border border-white/10 bg-navy-hover px-6 py-16 shadow-card md:px-8 md:py-24">
+      {/* CTA final — navy-hover, cierra el bookend con el hero (mismo padding p-lg/md:p-xl-mobile) */}
+      <section className="rounded-section border border-white/10 bg-navy-hover p-lg shadow-card md:p-xl-mobile">
         <Container className="!px-0 text-center">
           <h2 className="text-[32px] font-bold leading-tight text-white md:text-[48px]">
             ¿Listo para decidir con datos claros?

@@ -14,25 +14,30 @@ export default function Hero() {
   return (
     <section className="rounded-section border border-white/10 bg-navy-hover shadow-card">
 
-    <Container className="pt-4 pb-4 md:pt-8 md:pb-8">
+    <Container className="pt-5 pb-5 md:pt-8 md:pb-8">
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/70">
-            Power BI · Automatización · Para pymes
-          </span>
+          <h1 className="w-full mt-2 max-w-5xl text-[26px] font-semibold leading-tight text-white md:text-[36px] md:leading-snug">
+            <span className="underline decoration-accent/60 underline-offset-[6px]">
+              Automatizamos
+            </span> tus informes.
+            <br className="hidden md:block" />
 
-        <h1 className="w-full mt-2 max-w-5xl text-[26px] font-semibold leading-tight text-white md:text-[40px] md:leading-snug">
-          Automatizamos tus informes y creamos{" "}
-          <span className="text-accent">dashboards en Power BI</span> para que decidas en minutos
-        </h1>
+            Diseñamos <span className="text-accent">dashboards en Power BI</span>.
+            <br className="hidden md:block" />
 
+            Toma decisiones{" "}
+            <span className="underline decoration-accent/60 underline-offset-[6px]">
+              en minutos
+            </span>.
+          </h1>
         </div>
+
 
         <div className="mt-10 grid grid-cols-1 items-center gap-8 md:grid-cols-[1fr_1.1fr] md:gap-10">
           <div>
             <p className="max-w-lg text-bodyLg text-white/80 text-justify">
-              Si todavía cierras el mes copiando datos entre Excels, sabes
-              que algo falla. Te construimos el panel que lo evita, en
-              semanas, no en trimestres.
+            Si alguna vez has preguntado "¿cuál es el Excel bueno?", ya conoces el problema.
+            Centralizamos toda tu información en un único panel para que dejes de buscar datos y empieces a tomar decisiones.
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

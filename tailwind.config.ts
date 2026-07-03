@@ -17,36 +17,45 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        navy: {
-          50: "#E7ECF3",
-          100: "#C7D1E0",
-          DEFAULT: "#28354F",
-          hover: "#1D2740",
-          950: "#0F1526",
-          card: "#161D33",
-        },
+          colors: {
+              navy: {
+                50: "#E7ECF3",
+                100: "#C7D1E0",
+                DEFAULT: "#28354F",
+                hover: "#1D2740",
+                950: "#0F1526",
+                card: "#161D33",
+              },
 
-        canvas: "#CFC8BE", // fondo exterior de página — nunca fondo de tarjeta
-        bone: "#E0E0DB",
-        mist: "#F4F3F0", // tarjeta sobre sección bg-white
-        graphite: "#2A2829",
+              // Fondo exterior de página — beige cálido premium
+              canvas: "#dcd4cad3",
 
-        accent: {
-          DEFAULT: "#4C5FFF",
-          hover: "#3B4CE0",
-        },
+              // Tarjetas sobre canvas — beige claro
+              bone: "#E0E0DB",
 
-        success: {
-          DEFAULT: "#3F6B4E",
-          light: "#7BC49B",
-        },
+              // Tarjetas sobre secciones blancas — azul grisáceo premium
+              mist: "#F4F3F0",
 
-        alert: {
-          DEFAULT: "#A56A2E",
-          light: "#E2A876",
-        },
-      },
+              // Texto secundario
+              graphite: "#2A2829",
+
+              // Acento corporativo (botones, enlaces, badges)
+              accent: {
+                DEFAULT: "#4C5FFF",
+                hover: "#3B4CE0",
+              },
+
+              success: {
+                DEFAULT: "#3F6B4E",
+                light: "#7BC49B",
+              },
+
+              alert: {
+                DEFAULT: "#A56A2E",
+                light: "#E2A876",
+              },
+          },
+
 
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
