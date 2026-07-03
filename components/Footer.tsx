@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Container from "./Container";
 
-// Footer — Fase 4: ahora es su propia tarjeta redondeada, igual que el Nav
-// y cada sección de la home, en vez de vivir dentro del contenedor único.
+// Footer — tarjeta redondeada propia, igual que el Nav y cada sección de
+// la home.
+// Fase 6 (auditoría): se añade barra inferior con copyright y
+// localización — señal básica de confianza (empresa real, no anónima)
+// que faltaba por completo. "Reservar diagnóstico" mantiene el acento
+// (Fase 5): es el único enlace de conversión del footer.
 export default function Footer() {
   return (
     <footer className="rounded-section border border-black/10 bg-white shadow-card">
@@ -39,7 +43,7 @@ export default function Footer() {
           <a href="mailto:hola@mtrica.com" className="text-ui text-graphite hover:text-black">
             hola@mtrica.com
           </a>
-          <Link href="/citas" className="text-ui text-navy hover:underline underline-offset-4">
+          <Link href="/citas" className="text-ui text-accent hover:text-accent-hover underline-offset-4 hover:underline">
             Reservar diagnóstico →
           </Link>
         </div>
@@ -57,6 +61,13 @@ export default function Footer() {
           <Link href="/cookies" className="text-ui text-graphite hover:text-black">
             Cookies
           </Link>
+        </div>
+
+        <div className="col-span-2 mt-2 flex flex-col items-center gap-2 border-t border-black/8 pt-6 text-center sm:flex-row sm:justify-between sm:text-left md:col-span-4">
+          <p className="text-[12px] text-graphite/60">
+            © {new Date().getFullYear()} Mtrica. Todos los derechos reservados.
+          </p>
+          <p className="text-[12px] text-graphite/60">España · hola@mtrica.com</p>
         </div>
       </Container>
     </footer>

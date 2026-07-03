@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "Convertimos los datos dispersos de tu empresa en un panel claro que puedes mirar cada mañana. Diagnóstico de datos gratuito para pymes.",
 };
 
+// Fase 6 (auditoría, punto D): gap exterior sube a md:gap-6 — con md:gap-5
+// el canvas beige entre tarjetas no tenía espacio suficiente para "respirar"
+// como fondo diferenciador.
 export default function RootLayout({
   children,
 }: {
@@ -24,14 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      {/* Fase 4: cada "apartado" (Nav, cada sección, Footer) es ahora su
-          propia tarjeta redondeada con espacio de por medio, en vez de un
-          único bloque blanco continuo — así el contraste con el canvas se
-          nota en cada tarjeta, no solo en el borde exterior. */}
       <body className={`${inter.variable} bg-canvas font-sans`}>
-        <div className="mx-auto flex max-w-[1600px] flex-col gap-4 p-3 md:gap-5 md:p-5">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-4 p-3 md:gap-6 md:p-5">
           <Nav />
-          <main className="flex flex-col gap-4 md:gap-5">{children}</main>
+          <main className="flex flex-col gap-4 md:gap-6">{children}</main>
           <Footer />
         </div>
         <BackToTop />

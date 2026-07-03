@@ -86,6 +86,10 @@ function linePoints(values: number[]) {
     .join(" ");
 }
 
+// Fase 6 (auditoría): fondo interno bg-navy → bg-navy-card (si no, la
+// tarjeta se funde con el navy-950 del hero que la envuelve). Indicadores
+// activo/inactivo pasan de bg-navy/bg-bone (contraste nulo sobre fondo
+// oscuro) a bg-white/bg-white/30.
 export default function DashboardPreview({
   src,
   alt = "Panel de control con métricas de ventas y stock",
@@ -121,7 +125,7 @@ export default function DashboardPreview({
   return (
     <div>
       <div
-        className="rounded-card bg-navy p-6"
+        className="rounded-card bg-navy-card p-6"
         role="img"
         aria-label={`${alt} — vista: ${view.label}`}
       >
@@ -214,7 +218,7 @@ export default function DashboardPreview({
             aria-label={v.label}
             onClick={() => setIndex(i)}
             className={`h-1.5 rounded-full transition-all ${
-              i === index ? "w-5 bg-navy" : "w-1.5 bg-bone"
+              i === index ? "w-5 bg-white" : "w-1.5 bg-white/30"
             }`}
           />
         ))}
