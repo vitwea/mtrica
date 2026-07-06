@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Container from "@/components/Container";
+import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -10,24 +10,22 @@ export const metadata: Metadata = {
 
 export default function Contacto() {
   return (
-    <section className="py-xl-mobile md:py-xl">
-      <Container className="max-w-3xl">
-        <div className="text-center">
-          <p className="text-ui text-navy">Contacto</p>
-          <h1 className="mt-4 text-h2Mobile text-black md:text-h2">
-            Cuéntanos tu problema con los datos
-          </h1>
-          <p className="mx-auto mt-3 max-w-md text-body text-graphite">
-            Te respondemos en menos de 24h, sin compromiso.
-          </p>
-        </div>
+    <>
+      <PageHeader
+        eyebrow="Contacto"
+        title="Cuéntanos tu problema con los datos"
+        subtitle="Te respondemos en menos de 24h, sin compromiso."
+        compact
+      />
 
-        <div className="mt-lg flex justify-center">
-          <div className="w-full max-w-md">
-            <ContactForm />
-          </div>
-        </div>
-      </Container>
-    </section>
+      {/* Fase 10: max-w + mx-auto en la propia sección (no en un
+          Container interno) — así la tarjeta blanca en sí es estrecha
+          y centrada, con el canvas visible a los lados. Es lo que le da
+          la sensación de "flotar" en vez de ser una barra completa con
+          contenido centrado dentro. */}
+      <section className="mx-auto w-full max-w-lg rounded-section border border-black/10 bg-white p-lg shadow-card md:p-xl-mobile">
+        <ContactForm />
+      </section>
+    </>
   );
 }

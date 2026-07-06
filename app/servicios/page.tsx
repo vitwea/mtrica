@@ -39,8 +39,8 @@ const services = [
       "Conexión a tus fuentes de datos reales",
       "Formación básica para tu equipo",
     ],
-    timeframe: "Primer dashboard funcional en 4-6 semanas",
-    ctaLabel: "Solicitar diagnóstico gratuito",
+    timeframe: "Primer dashboard funcional en 2-4 semanas",
+    ctaLabel: "Solicitar consulta gratuita",
     ctaHref: "/citas",
   },
   {
@@ -80,30 +80,44 @@ export default function Servicios() {
         eyebrow="Servicios"
         title="Un servicio para cada punto donde estás perdiendo visibilidad"
         subtitle="Empieza por donde tenga más sentido para tu negocio — no hace falta contratar todo a la vez."
+        compact
       />
 
-      {services.map((service, i) => (
-        <ServiceDetail key={service.id} {...service} alt={i % 2 === 1} />
-      ))}
+      <section className="py-2 md:py-3">
+        <Container className="!max-w-none">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            {services.map((service) => (
+              <ServiceDetail key={service.id} {...service} />
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <PricingBlock />
 
-      <section className="bg-navy py-xl-mobile md:py-xl">
-        <Container className="text-center">
+      <section className="rounded-section border border-white/10 bg-navy-hover p-lg shadow-card md:p-xl-mobile">
+        <Container className="!px-0 text-center">
           <h2 className="text-h2Mobile text-white md:text-h2">
             ¿No sabes por cuál empezar?
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-body text-white/80">
+          <p className="mx-auto mt-3 max-w-md text-bodyLg text-white/60">
             El diagnóstico gratuito de 30 minutos te lo deja claro, sin
             compromiso.
           </p>
-          <Button
-            href="/citas"
-            variant="primary"
-            className="mt-6 !bg-white !text-navy hover:!bg-white/90"
-          >
-            Solicitar diagnóstico gratuito
-          </Button>
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <Button
+              href="/citas"
+              variant="primary"
+              className="!min-h-[52px] !bg-accent !px-8 !py-3.5 !text-[15px] !font-semibold !shadow-lg !shadow-accent/25 hover:!bg-accent-hover"
+            >
+              Solicitar diagnóstico gratuito
+            </Button>
+            <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[12px] text-white/40">
+              <span>Sin compromiso</span>
+              <span>Respuesta en 24h</span>
+              <span>100% gratuito</span>
+            </p>
+          </div>
         </Container>
       </section>
     </>

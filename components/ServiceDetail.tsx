@@ -1,6 +1,4 @@
 import { LucideIcon, Check } from "lucide-react";
-import Container from "./Container";
-import Button from "./Button";
 
 type ServiceDetailProps = {
   id: string;
@@ -11,7 +9,6 @@ type ServiceDetailProps = {
   timeframe?: string;
   ctaLabel: string;
   ctaHref: string;
-  alt?: boolean; // fondo alterno (gris hueso) para separar secciones sin líneas
 };
 
 export default function ServiceDetail({
@@ -23,39 +20,42 @@ export default function ServiceDetail({
   timeframe,
   ctaLabel,
   ctaHref,
-  alt = false,
 }: ServiceDetailProps) {
   return (
-    <section id={id} className={`scroll-mt-24 py-lg ${alt ? "bg-bone/40" : "bg-white"}`}>
-      <Container className="max-w-3xl">
-        <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-card bg-white border border-bone">
-            <Icon className="h-6 w-6 text-navy" strokeWidth={1.75} aria-hidden="true" />
-          </div>
-          <div className="flex-1">
-            <h2 className="text-h3 text-black">{title}</h2>
-            <p className="mt-2 text-bodyLg text-graphite">{problem}</p>
-
-            <ul className="mt-5 flex flex-col gap-2.5">
-              {includes.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-body text-graphite">
-                  <Check className="mt-1 h-4 w-4 flex-shrink-0 text-navy" strokeWidth={2} aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <Button href={ctaHref} variant="secondary">
-                {ctaLabel}
-              </Button>
-              {timeframe && (
-                <span className="text-ui text-graphite">{timeframe}</span>
-              )}
-            </div>
-          </div>
+    <div
+      id={id}
+      className="scroll-mt-24 flex flex-col rounded-card border border-bone bg-mist p-md md:p-lg"
+    >
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
+          <Icon className="h-5 w-5 text-navy" strokeWidth={1.75} aria-hidden="true" />
         </div>
-      </Container>
-    </section>
+        <h2 className="text-h4 text-black">{title}</h2>
+      </div>
+
+      <p className="mt-3 text-body text-graphite">{problem}</p>
+
+      <ul className="mt-4 flex flex-col gap-2">
+        {includes.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-ui text-graphite">
+            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-navy" strokeWidth={2} aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-auto pt-5">
+        {timeframe && (
+          <p className="mb-3 text-caption text-graphite/70">{timeframe}</p>
+        )}
+
+        <a
+          href={ctaHref}
+          className="text-ui font-medium text-navy hover:underline underline-offset-4"
+        >
+          {ctaLabel} →
+        </a>
+      </div>
+    </div>
   );
 }

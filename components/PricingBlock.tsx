@@ -26,18 +26,18 @@ const tiers = [
   },
 ];
 
-// Precios orientativos (Fase 2, sección 2.2): pre-cualifican al visitante antes
-// de una llamada. Cifras de ejemplo — ajustar con datos reales del negocio.
+// Fase 9: la sección pasa a tarjeta flotante bone (mismo criterio que
+// "Cómo trabajamos" en Inicio). Los tiers internos no cambian — ya
+// seguían el token correcto (rounded-card + border-bone + bg-white).
 export default function PricingBlock() {
   return (
-    <section className="bg-bone/40 py-xl-mobile md:py-xl">
-      <Container>
+    <section className="rounded-section border border-black/10 bg-bone p-lg shadow-card md:p-xl-mobile">
+      <Container className="!px-0">
         <h2 className="text-center text-h2Mobile text-black md:text-h2">
           Precios
         </h2>
         <p className="mx-auto mt-3 max-w-md text-center text-body text-graphite">
-          El presupuesto cerrado se define tras el diagnóstico gratuito, según
-          el alcance real de tu proyecto.
+          El presupuesto cerrado se define tras la consulta inicial.
         </p>
 
         <div className="mt-md grid grid-cols-1 gap-4 md:grid-cols-3">

@@ -1,18 +1,23 @@
+// components/PageHeader.tsx
+
 type PageHeaderProps = {
   eyebrow: string;
   title: string;
   subtitle: string;
+  compact?: boolean;
 };
 
-// Cabecera compacta para páginas internas — el hero foto/degradado grande
-// se reserva solo para Inicio (Fase 3: "un único momento de mayor impacto visual").
-export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps) {
+export default function PageHeader({ eyebrow, title, subtitle, compact = false }: PageHeaderProps) {
   return (
-    <section className="border-b border-bone bg-bone/40 py-xl-mobile md:py-xl">
-      <div className="mx-auto max-w-2xl px-6 text-center md:px-8">
-        <p className="text-ui text-navy">{eyebrow}</p>
-        <h1 className="mt-4 text-h2Mobile text-black md:text-h1">{title}</h1>
-        <p className="mt-5 text-bodyLg text-graphite">{subtitle}</p>
+    <section className="rounded-section border border-white/10 bg-navy-hover shadow-card">
+      <div className={`mx-auto max-w-8xl px-6 text-center md:px-8 ${
+        compact ? "pt-5 pb-5 md:pt-8 md:pb-8" : "pt-8 pb-8 md:pt-12 md:pb-12"
+      }`}>
+        <p className="text-ui text-accent">{eyebrow}</p>
+        <h1 className={`text-white ${compact ? "mt-3 text-h3Mobile md:text-h2" : "mt-4 text-h2Mobile md:text-h1"}`}>
+          {title}
+        </h1>
+        <p className={`text-white/70 ${compact ? "mt-3" : "mt-5"}`}>{subtitle}</p>
       </div>
     </section>
   );

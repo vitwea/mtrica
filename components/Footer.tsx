@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "./Container";
+import LogoFull from "./LogoFull";
 
 // Footer — tarjeta redondeada propia, igual que el Nav y cada sección de
 // la home.
@@ -12,8 +13,8 @@ export default function Footer() {
     <footer className="rounded-section border border-black/10 bg-white shadow-card">
       <Container className="grid grid-cols-2 gap-8 py-lg md:grid-cols-4">
         <div>
-          <p className="text-lg font-bold text-black">Mtrica</p>
-          <p className="mt-2 text-ui text-graphite">
+          <LogoFull className="h-28 w-auto" />
+          <p className="mt-3 text-ui text-graphite">
             Business Intelligence para pymes que quieren decidir con datos claros.
           </p>
         </div>

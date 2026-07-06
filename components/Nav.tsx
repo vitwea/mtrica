@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "./Button";
 import MobileNav from "./MobileNav";
+import Logo from "./Logo";
 
 // Nav — tarjeta redondeada propia, sin sticky.
 // Fase 6 (auditoría): logo baja de text-4xl (36px, leía como un H1) a
@@ -12,13 +13,17 @@ export default function Nav() {
   return (
     <header className="rounded-section border border-black/10 bg-white px-5 shadow-card md:px-8">
       <div className="flex items-center justify-between py-5">
-        <Link href="/" className="text-[22px] font-bold tracking-tight text-black">
-          Mtrica
+        <Link href="/" aria-label="Mtrica — inicio">
+        <Logo className="h-12 w-auto" />
+
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">
           <Link href="/servicios" className="text-ui text-graphite hover:text-black">
             Servicios
+          </Link>
+          <Link href="/proyectos" className="text-ui text-graphite hover:text-black">
+            Proyectos
           </Link>
           <Link href="/contacto" className="text-ui text-graphite hover:text-black">
             Contacto

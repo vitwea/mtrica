@@ -6,6 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ProcessSteps from "@/components/ProcessSteps";
 import Testimonial from "@/components/Testimonial";
 import Button from "@/components/Button";
+import { projects } from "@/lib/projects";
 
 // Fase 7: "Excels desconectados" se marca como el problema ancla —
 // es el síntoma más reconocible en pymes y el caso de uso más directo de
@@ -133,20 +134,39 @@ export default function Home() {
         </Container>
       </section>
 
-       {/* Caso de éxito destacado — white; tarjeta en mist (ver ProjectCard.tsx) */}
+      {/* Casos de éxito — Fase 12: deja de ser una ProjectCard fija en la home
+        y pasa a ser un preview de lib/projects.ts (misma fuente que usa la
+        página /proyectos). Así, cuando añadas un cuarto/quinto caso, la home
+        lo refleja sola sin tocar este archivo. */}
       <section className="rounded-section border border-black/10 bg-white p-lg shadow-card md:p-xl-mobile">
         <Container className="!px-0">
           <h2 className="text-center text-h2Mobile text-black md:text-h2">
-            Caso de éxito
+            Casos de éxito
           </h2>
-          <div className="mx-auto mt-md max-w-md">
-            <ProjectCard
-              sector="Retail"
-              title="Control de ventas y stock en tiempo real"
-              result="+30% precisión en previsión de demanda"
-              href="/proyectos/pyme-retail-dashboard-ventas"
-            />
+          <p className="mx-auto mt-3 max-w-md text-center text-body text-graphite">
+            Power BI real, aplicado a problemas reales de pymes como la tuya.
+          </p>
+
+          <div className="mt-md grid grid-cols-1 gap-4 md:grid-cols-3">
+            {projects.slice(0, 3).map((project) => (
+              <ProjectCard
+                key={project.slug}
+                sector={project.sector}
+                title={project.title}
+                result={project.resultHeadline}
+                href={`/proyectos/${project.slug}`}
+              />
+            ))}
           </div>
+
+          <p className="mt-6 text-center text-ui text-graphite">
+            <Link
+              href="/proyectos"
+              className="text-navy hover:underline underline-offset-4"
+            >
+              Ver todos los casos de éxito →
+            </Link>
+          </p>
         </Container>
       </section>
 
