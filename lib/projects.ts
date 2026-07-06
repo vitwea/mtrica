@@ -31,7 +31,7 @@ export const projects: Project[] = [
     { label: "Margen de un producto oculto, vendido con pérdida", value: "-8,3%" },
   ],
   powerBiEmbedUrl: "https://app.fabric.microsoft.com/view?r=eyJrIjoiN2ZmZmIzNzYtMWM2ZS00YmM0LWIyOWQtYTQ4NzE0YzNlZjc1IiwidCI6IjQxZmMzMjYyLWFhZDAtNDc0Zi05NWZjLTQxNDA5OWE1OGFjNiJ9",
-  resultHeadline: "67,63% de tus ventas puede depender de un solo cliente sin que lo sepas",
+  resultHeadline: "Más del 60% de tus ventas puede depender de un solo cliente sin que lo sepas",
   },
   {
     slug: "pyme-distribucion-tesoreria-facturas-vencidas",
@@ -51,17 +51,20 @@ export const projects: Project[] = [
     resultHeadline: "Tu tesorería puede quedarse en negativo sin que ningún informe mensual te avise a tiempo",
   },
   {
-    slug: "PENDIENTE-soporte-mantenimiento",
-    sector: "Servicios profesionales",
-    title: "[PENDIENTE: título real del proyecto]",
-    clientProfile: "[PENDIENTE: perfil del cliente]",
-    problem: "[PENDIENTE]",
-    solution: "[PENDIENTE]",
-    impact: [
-      { label: "[PENDIENTE]", value: "[PENDIENTE]" },
-      { label: "[PENDIENTE]", value: "[PENDIENTE]" },
-    ],
-    powerBiEmbedUrl: "https://app.powerbi.com/view?r=PENDIENTE_SUSTITUIR",
-    resultHeadline: "[PENDIENTE] pero or algun razon razon razon tas  da  kadd",
-  },
+      slug: "pyme-comercial-rotacion-absentismo-productividad",
+      sector: "Distribución industrial",
+      title: "Detectar la fuga de tu mejor equipo antes de que sea irreversible",
+      clientProfile: "Distribuidora de ferretería y suministros industriales, con 18 empleados repartidos en cinco departamentos",
+      problem:
+        "Las bajas del equipo comercial se veían como casos aislados — cada una con su propia explicación puntual. Nadie cruzaba nunca la rotación con el absentismo ni con el cumplimiento de objetivos, así que no había forma de ver que los tres empleados que se fueron llevaban meses acumulando más ausencias y peor rendimiento antes de marcharse. El problema no era la falta de datos, era que vivían en sistemas separados que nadie juntaba nunca.",
+      solution:
+        "Dashboard en Power BI que cruza asistencia, rendimiento y bajas de todo el personal en un único panel: alertas automáticas cuando el absentismo de un departamento supera el umbral de referencia, un análisis de cumplimiento de objetivos en el tiempo, y un cruce de absentismo contra rendimiento por empleado que aísla visualmente a quienes están en riesgo real, antes de que sea demasiado tarde para retenerlos.",
+      impact: [
+        { label: "Rotación detectada en el equipo comercial", value: "60%" },
+        { label: "Absentismo del equipo en su último mes", value: "13,9%" },
+        { label: "Coste estimado de la rotación no detectada", value: "34.218 €" },
+      ],
+      powerBiEmbedUrl: "https://app.fabric.microsoft.com/view?r=eyJrIjoiMjg5ZGM4NmYtZTAxZC00MWVhLTk5OTAtYzhjYTcxYThlYWYxIiwidCI6IjQxZmMzMjYyLWFhZDAtNDc0Zi05NWZjLTQxNDA5OWE1OGFjNiJ9",
+      resultHeadline: "6 de cada 10 comerciales se fueron este año, y las señales estaban ahí meses antes",
+    },
 ];
