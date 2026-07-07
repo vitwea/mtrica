@@ -18,35 +18,38 @@ export default async function Image() {
           backgroundColor: "#1D2740",
         }}
       >
-        <svg width="340" height="118" viewBox="0 0 420 145">
-          <rect x="0" y="95" width="26" height="45" rx="4" fill="#0F1526" />
-          <rect x="38" y="70" width="26" height="70" rx="4" fill="#0F1526" />
-          <rect x="76" y="45" width="26" height="95" rx="4" fill="#0F1526" />
-
-          <path
-            d="M4 88 C 30 60 55 35 80 21"
-            fill="none"
-            stroke="#4C5FFF"
-            strokeWidth="8"
-            strokeLinecap="round"
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 10, position: "relative" }}>
+          <div style={{ width: 34, height: 60, borderRadius: 6, backgroundColor: "#0F1526" }} />
+          <div style={{ width: 34, height: 95, borderRadius: 6, backgroundColor: "#0F1526" }} />
+          <div style={{ width: 34, height: 130, borderRadius: 6, backgroundColor: "#0F1526" }} />
+          <div
+            style={{
+              position: "absolute",
+              top: -18,
+              left: -6,
+              width: 130,
+              height: 6,
+              borderRadius: 3,
+              backgroundColor: "#4C5FFF",
+              transform: "rotate(-28deg)",
+              transformOrigin: "left center",
+            }}
           />
-          <path
-            d="M64 4 L94 12 L82 40 L67 26 Z"
-            fill="#4C5FFF"
-          />
+        </div>
 
-          <text
-            x="120"
-            y="135"
-            fontSize="95"
-            fontWeight="700"
-            fill="white"
-          >
-            trica
-          </text>
-        </svg>
+        <div
+          style={{
+            marginTop: 32,
+            fontSize: 96,
+            fontWeight: 700,
+            color: "white",
+            letterSpacing: -2,
+          }}
+        >
+          Mtrica
+        </div>
 
-        <div style={{ marginTop: 24, fontSize: 32, color: "rgba(255,255,255,0.65)" }}>
+        <div style={{ marginTop: 12, fontSize: 30, color: "rgba(255,255,255,0.65)" }}>
           Dashboards en Power BI para pymes
         </div>
       </div>
