@@ -23,7 +23,12 @@ function emailShell(bodyHtml: string) {
             <table role="presentation" width="100%" style="max-width:560px;" cellpadding="0" cellspacing="0">
               <tr>
                 <td align="center" style="padding-bottom: 24px;">
-                  <img src="${LOGO_URL}" alt="Mtrica" width="140" style="display:block; border:0;" />
+                  <img
+                    src="${LOGO_URL}"
+                    alt="Mtrica"
+                    width="560"
+                    style="display:block; width:100%; max-width:560px; height:auto; border:0;"
+                  />
                 </td>
               </tr>
               <tr>

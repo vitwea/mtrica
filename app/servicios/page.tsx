@@ -100,9 +100,8 @@ export default function Servicios() {
           <h2 className="text-h2CompactMobile text-white md:text-h2Compact">
             ¿No sabes por cuál empezar?
           </h2>
-          <p className="mx-auto mt-2 max-w-sm text-ui text-white/60">
-            El diagnóstico gratuito de 30 minutos te lo deja claro, sin
-            compromiso.
+          <p className="mx-auto mt-2 max-w-xl text-ui text-white/60">
+            El diagnóstico gratuito de 30 minutos te lo deja claro, sin compromiso.
           </p>
           <div className="mt-4 flex flex-col items-center gap-2">
             <Button
@@ -112,11 +111,6 @@ export default function Servicios() {
             >
               Solicitar diagnóstico gratuito
             </Button>
-            <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-white/40">
-              <span>Sin compromiso</span>
-              <span>Respuesta en 24h</span>
-              <span>100% gratuito</span>
-            </p>
           </div>
         </Container>
       </section>

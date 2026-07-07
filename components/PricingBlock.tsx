@@ -12,7 +12,7 @@ const tiers = [
   {
     name: "Implementación",
     price: "Desde 250 €",
-    description: "Dashboards a medida, conectados a tus fuentes de datos.",
+    description: "Cada proyecto se adapta a tus necesidades.\nEl presupuesto final se define tras la consulta inicial",
     cta: "Solicitar presupuesto",
     href: "/citas",
     featured: true,
@@ -31,11 +31,8 @@ export default function PricingBlock() {
     <section className="rounded-section border border-black/10 bg-white p-sm shadow-card md:p-md">
       <Container className="!px-0">
         <h2 className="text-center text-h2CompactMobile text-black md:text-h2Compact">
-          Precios
+          Servicios
         </h2>
-        <p className="mx-auto mt-2 max-w-sm text-center text-ui text-graphite">
-          El presupuesto cerrado se define tras la consulta inicial.
-        </p>
 
         <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
           {tiers.map((tier) => (
@@ -47,12 +44,12 @@ export default function PricingBlock() {
             >
               {tier.featured && (
                 <span className="mb-2 inline-block rounded-full bg-navy px-2.5 py-0.5 text-caption font-medium text-white">
-                  Más solicitado
+                  Ideals para empezar
                 </span>
               )}
               <p className="text-ui font-semibold text-black">{tier.name}</p>
               <p className="mt-0.5 text-h4 text-navy">{tier.price}</p>
-              <p className="mt-1.5 text-caption text-graphite">{tier.description}</p>
+              <p className="mt-1.5 text-caption text-graphite whitespace-pre-line">{tier.description}</p>
               <Button
                 href={tier.href}
                 variant={tier.featured ? "primary" : "secondary"}

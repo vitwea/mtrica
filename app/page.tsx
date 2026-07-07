@@ -187,7 +187,7 @@ export default function Home() {
           <h2 className="text-h3Mobile text-white md:text-h3">
             ¿Listo para decidir con datos claros?
           </h2>
-          <p className="mx-auto mt-2 max-w-sm text-ui text-white/60">
+          <p className="mx-auto mt-2 max-w-xl text-ui text-white/60">
             Empieza con un diagnóstico gratuito de tus datos. Sin compromiso.
           </p>
           <Button
