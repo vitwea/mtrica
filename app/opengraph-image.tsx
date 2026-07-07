@@ -37,6 +37,22 @@ export default async function Image() {
         <div style={{ marginTop: 12, fontSize: 30, color: "rgba(255,255,255,0.65)" }}>
           Business Intelligence para pymes
         </div>
+        <div
+          style={{
+            marginTop: 40,
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            backgroundColor: "#4C5FFF",
+            borderRadius: 999,
+            padding: "16px 32px",
+            fontSize: 26,
+            fontWeight: 700,
+            color: "white",
+          }}
+        >
+          Diagnóstico gratuito →
+        </div>
       </div>
     ),
     { ...size }

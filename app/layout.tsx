@@ -21,8 +21,8 @@ const spaceGrotesk = Space_Grotesk({
 
 const title = "Mtrica — Business Intelligence para pymes";
 const description =
-  "Convertimos los datos dispersos de tu empresa en un panel claro que puedes mirar cada mañana. Diagnóstico de datos gratuito para pymes.";
-
+  "Dashboards en Power BI para pymes que quieren decidir con datos claros. Diagnóstico gratuito.";
+  
 export const metadata: Metadata = {
   metadataBase: new URL("https://mtrica.com"),
   title: {
