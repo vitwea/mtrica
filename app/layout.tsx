@@ -19,10 +19,30 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const title = "Mtrica — Business Intelligence para pymes";
+const description =
+  "Convertimos los datos dispersos de tu empresa en un panel claro que puedes mirar cada mañana. Diagnóstico de datos gratuito para pymes.";
+
 export const metadata: Metadata = {
-  title: "Mtrica — Business Intelligence para pymes",
-  description:
-    "Convertimos los datos dispersos de tu empresa en un panel claro que puedes mirar cada mañana. Diagnóstico de datos gratuito para pymes.",
+  metadataBase: new URL("https://mtrica.com"),
+  title: {
+    default: title,
+    template: "%s | Mtrica",
+  },
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Mtrica",
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({

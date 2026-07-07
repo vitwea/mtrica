@@ -21,6 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${project.title} | Casos de éxito Mtrica`,
     description: project.problem,
+    openGraph: {
+      title: project.title,
+      description: project.resultHeadline,
+      type: "article",
+    },
   };
 }
 
