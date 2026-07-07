@@ -31,9 +31,9 @@ export default function LogoFull({ className = "h-20 w-auto" }) {
       <text
         x="120"
         y="140"
-        fontFamily="var(--font-space-grotesk), Arial, sans-serif"
+        fontFamily="Arial, Helvetica, sans-serif"
         fontSize="95"
-        fontWeight="700"
+        fontWeight="750"
         style={{ letterSpacing: "-2px" }}
       >
         trica
@@ -42,7 +42,7 @@ export default function LogoFull({ className = "h-20 w-auto" }) {
       <text
         x="165"
         y="200"
-        fontFamily="Inter, Arial, sans-serif"
+        fontFamily="Arial, Helvetica, sans-serif"
         fontSize="28"
         fontWeight="400"
         textAnchor="middle"
@@ -50,7 +50,7 @@ export default function LogoFull({ className = "h-20 w-auto" }) {
       >
         Mide. Decide. Crece.
       </text>
-      <circle cx="210" cy="80" r="8.5" className="fill-accent" />
+      <circle cx="198.5" cy="78" r="9" className="fill-accent" />
     </svg>
   );
 }
