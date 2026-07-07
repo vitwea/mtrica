@@ -37,11 +37,20 @@ export const metadata: Metadata = {
     siteName: "Mtrica",
     locale: "es_ES",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png?v=1",
+        width: 1200,
+        height: 630,
+        alt: "Mtrica — Business Intelligence para pymes",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: ["/og-image.png?v=1"],
   },
 };
 
