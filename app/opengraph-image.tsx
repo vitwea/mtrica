@@ -25,14 +25,27 @@ export default async function Image() {
           <div
             style={{
               position: "absolute",
-              top: -18,
-              left: -6,
-              width: 130,
+              top: -20,
+              left: -8,
+              width: 140,
               height: 6,
               borderRadius: 3,
               backgroundColor: "#4C5FFF",
-              transform: "rotate(-28deg)",
+              transform: "rotate(-26deg)",
               transformOrigin: "left center",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: -34,
+              left: 108,
+              width: 0,
+              height: 0,
+              borderTop: "9px solid transparent",
+              borderBottom: "9px solid transparent",
+              borderLeft: "14px solid #4C5FFF",
+              transform: "rotate(-26deg)",
             }}
           />
         </div>
