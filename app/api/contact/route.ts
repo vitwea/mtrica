@@ -10,7 +10,7 @@ function escapeHtml(str: string) {
     .replace(/'/g, "&#039;");
 }
 
-const LOGO_URL = "https://mtrica.com/og-image.png";
+const LOGO_URL = "https://mtrica.com/logo-email.png";
 
 function emailShell(bodyHtml: string) {
   return `
