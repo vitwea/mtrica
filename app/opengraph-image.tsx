@@ -18,52 +18,26 @@ export default async function Image() {
           backgroundColor: "#1D2740",
         }}
       >
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 10, position: "relative" }}>
-          <div style={{ width: 34, height: 60, borderRadius: 6, backgroundColor: "#0F1526" }} />
-          <div style={{ width: 34, height: 95, borderRadius: 6, backgroundColor: "#0F1526" }} />
-          <div style={{ width: 34, height: 130, borderRadius: 6, backgroundColor: "#0F1526" }} />
-          <div
-            style={{
-              position: "absolute",
-              top: -20,
-              left: -8,
-              width: 140,
-              height: 6,
-              borderRadius: 3,
-              backgroundColor: "#4C5FFF",
-              transform: "rotate(-26deg)",
-              transformOrigin: "left center",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: -34,
-              left: 108,
-              width: 0,
-              height: 0,
-              borderTop: "9px solid transparent",
-              borderBottom: "9px solid transparent",
-              borderLeft: "14px solid #4C5FFF",
-              transform: "rotate(-26deg)",
-            }}
-          />
-        </div>
-
         <div
           style={{
-            marginTop: 32,
-            fontSize: 96,
+            fontSize: 120,
             fontWeight: 700,
             color: "white",
-            letterSpacing: -2,
+            letterSpacing: -3,
           }}
         >
           Mtrica
         </div>
 
-        <div style={{ marginTop: 12, fontSize: 30, color: "rgba(255,255,255,0.65)" }}>
-          Dashboards en Power BI para pymes
+        <div
+          style={{
+            marginTop: 16,
+            fontSize: 32,
+            color: "rgba(255,255,255,0.65)",
+            wordSpacing: "18px",
+          }}
+        >
+          Mide. Decide. Crece.
         </div>
       </div>
     ),
