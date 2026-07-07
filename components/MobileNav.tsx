@@ -40,6 +40,12 @@ export default function MobileNav({ light = false }: { light?: boolean }) {
             <Link href="/servicios" onClick={() => setOpen(false)} className="text-h4 text-black">
               Servicios
             </Link>
+            <Link href="/proyectos" onClick={() => setOpen(false)} className="text-h4 text-black">
+              Proyectos
+            </Link>
+            <Link href="/nosotros" onClick={() => setOpen(false)} className="text-h4 text-black">
+              Nosotros
+            </Link>
             <Link href="/contacto" onClick={() => setOpen(false)} className="text-h4 text-black">
               Contacto
             </Link>

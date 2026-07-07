@@ -26,40 +26,37 @@ const tiers = [
   },
 ];
 
-// Fase 9: la sección pasa a tarjeta flotante bone (mismo criterio que
-// "Cómo trabajamos" en Inicio). Los tiers internos no cambian — ya
-// seguían el token correcto (rounded-card + border-bone + bg-white).
 export default function PricingBlock() {
   return (
-    <section className="rounded-section border border-black/10 bg-bone p-lg shadow-card md:p-xl-mobile">
+    <section className="rounded-section border border-black/10 bg-bone p-sm shadow-card md:p-md">
       <Container className="!px-0">
-        <h2 className="text-center text-h2Mobile text-black md:text-h2">
+        <h2 className="text-center text-[20px] font-bold leading-snug text-black md:text-[26px]">
           Precios
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-center text-body text-graphite">
+        <p className="mx-auto mt-2 max-w-sm text-center text-ui text-graphite">
           El presupuesto cerrado se define tras la consulta inicial.
         </p>
 
-        <div className="mt-md grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-card border bg-white p-md ${
+              className={`rounded-card border bg-white p-sm ${
                 tier.featured ? "border-navy border-2" : "border-bone"
               }`}
             >
               {tier.featured && (
-                <span className="mb-3 inline-block rounded-full bg-navy px-3 py-1 text-caption font-medium text-white">
+                <span className="mb-2 inline-block rounded-full bg-navy px-2.5 py-0.5 text-[11px] font-medium text-white">
                   Más solicitado
                 </span>
               )}
-              <p className="text-h4 text-black">{tier.name}</p>
-              <p className="mt-1 text-h3 text-navy">{tier.price}</p>
-              <p className="mt-2.5 text-body text-graphite">{tier.description}</p>
+              <p className="text-ui font-semibold text-black">{tier.name}</p>
+              <p className="mt-0.5 text-h4 text-navy">{tier.price}</p>
+              <p className="mt-1.5 text-caption text-graphite">{tier.description}</p>
               <Button
                 href={tier.href}
                 variant={tier.featured ? "primary" : "secondary"}
-                className="mt-5 w-full"
+                className="mt-3 !min-h-[36px] !w-full !rounded-full !py-1.5 !text-[13px]"
               >
                 {tier.cta}
               </Button>

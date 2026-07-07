@@ -63,29 +63,30 @@ export default function Home() {
       {/* Hero — navy-950 + acento */}
       <Hero />
 
-      {/* Problema → agitación. Fase 7: cabecera pasa de pregunta genérica
-          a afirmación ("ya sé que te pasa esto"), y una de las tres
-          tarjetas se convierte en ancla con pista de solución. */}
+      {/* Problema → agitación */}
       <section className="rounded-section border border-black/10 bg-white p-lg shadow-card md:p-xl-mobile">
         <Container className="!px-0">
-          <h2 className="mx-auto max-w-5xl text-center text-h2Mobile text-black md:text-h2">
-            Casi siempre es el mismo problema<br />y es el más fácil de resolver
+          <h2 className="mx-auto max-w-5xl text-center text-h3tMobile text-black md:text-h3">
+            Casi siempre es el mismo problema y es {" "}
+            <span className="underline decoration-accent/60 underline-offset-[6px]">
+              el más fácil de resolver
+            </span>
           </h2>
 
           <div className="mt-md grid grid-cols-1 gap-4 md:grid-cols-3">
             {problems.map((problem) => (
               <div
                 key={problem.title}
-                className={`rounded-card border p-md ${
+                className={`group rounded-card border p-md shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card ${
                   problem.featured
                     ? "border-accent/40 bg-mist"
                     : "border-bone bg-mist"
                 }`}
               >
                 <div className="mb-4 flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-sm transition-colors duration-200 group-hover:bg-navy">
                     <problem.icon
-                      className="h-5 w-5 text-navy"
+                      className="h-5 w-5 text-navy transition-colors duration-200 group-hover:text-white"
                       strokeWidth={1.75}
                       aria-hidden="true"
                     />
@@ -111,16 +112,16 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Cómo trabajamos — tarjetas internas ya en white sobre bone, correcto */}
+      {/* Cómo trabajamos — contenedor compacto (p-md/md:p-lg) */}
       <section
         id="como-trabajamos"
-        className="scroll-mt-16 rounded-section border border-black/10 bg-bone p-lg shadow-card md:p-xl-mobile"
+        className="scroll-mt-16 rounded-section border border-black/10 bg-white p-md shadow-card md:p-lg"
       >
         <Container className="!px-0">
           <div className="mb-md text-center">
-            <h2 className="text-h2Mobile text-black md:text-h2">
-              Cómo trabajamos contigo
-            </h2>
+          <h2 className="text-h3Mobile text-black md:text-h3">
+            Cómo trabajamos contigo
+          </h2>
           </div>
           <ProcessSteps steps={steps} />
           <p className="mt-6 text-center text-ui text-graphite">
@@ -134,23 +135,22 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Casos de éxito — Fase 12: deja de ser una ProjectCard fija en la home
-        y pasa a ser un preview de lib/projects.ts (misma fuente que usa la
-        página /proyectos). Así, cuando añadas un cuarto/quinto caso, la home
-        lo refleja sola sin tocar este archivo. */}
-      <section className="rounded-section border border-black/10 bg-white p-lg shadow-card md:p-xl-mobile">
+      {/* Casos de éxito */}
+      <section className="rounded-section border border-black/10 bg-white p-md shadow-card md:p-lg">
         <Container className="!px-0">
-          <h2 className="text-center text-h2Mobile text-black md:text-h2">
+          <h2 className="text-center text-h3Mobile text-black md:text-h3">
             Casos de éxito
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-center text-body text-graphite">
+          <p className="mx-auto mt-2 max-w-sm text-center text-ui text-graphite">
             Power BI real, aplicado a problemas reales de pymes como la tuya.
           </p>
 
-          <div className="mt-md grid grid-cols-1 gap-4 md:grid-cols-3">
-            {projects.slice(0, 3).map((project) => (
+          <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-3">
+            {projects.slice(0, 3).map((project, index) => (
               <ProjectCard
                 key={project.slug}
+                slug={project.slug}
+                index={index}
                 sector={project.sector}
                 title={project.title}
                 result={project.resultHeadline}
@@ -159,7 +159,7 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="mt-6 text-center text-ui text-graphite">
+          <p className="mt-5 text-center text-ui text-graphite">
             <Link
               href="/proyectos"
               className="text-navy hover:underline underline-offset-4"
@@ -170,7 +170,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Testimonio — bone; comillas, escala y avatar en Testimonial.tsx 
+      {/* Testimonio — comentado hasta tener uno real
       <section className="rounded-section border border-black/10 bg-bone p-lg shadow-card md:p-xl-mobile">
         <Container className="!px-0">
           <Testimonial
@@ -181,30 +181,22 @@ export default function Home() {
         </Container>
       </section>*/}
 
-      {/* CTA final — navy-hover, cierra el bookend con el hero (mismo padding p-lg/md:p-xl-mobile) */}
-      <section className="rounded-section border border-white/10 bg-navy-hover p-lg shadow-card md:p-xl-mobile">
+      {/* CTA final — compacto (contenedor, tipografía y botón reducidos) */}
+      <section className="rounded-section border border-white/10 bg-navy-hover p-sm shadow-card md:p-md">
         <Container className="!px-0 text-center">
-          <h2 className="text-[32px] font-bold leading-tight text-white md:text-[48px]">
+          <h2 className="text-h3Mobile text-white md:text-h3">
             ¿Listo para decidir con datos claros?
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-bodyLg text-white/60">
+          <p className="mx-auto mt-2 max-w-sm text-ui text-white/60">
             Empieza con un diagnóstico gratuito de tus datos. Sin compromiso.
           </p>
-
-          <div className="mt-8 flex flex-col items-center gap-3">
-            <Button
-              href="/citas"
-              variant="primary"
-              className="!min-h-[52px] !bg-accent !px-8 !py-3.5 !text-[15px] !font-semibold !shadow-lg !shadow-accent/25 hover:!bg-accent-hover"
-            >
-              Solicitar diagnóstico gratuito
-            </Button>
-            <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[12px] text-white/40">
-              <span>Sin compromiso</span>
-              <span>Respuesta en 24h</span>
-              <span>100% gratuito</span>
-            </p>
-          </div>
+          <Button
+            href="/citas"
+            variant="primary"
+            className="mt-4 !min-h-[40px] !rounded-full !bg-accent !px-5 !py-2 !text-[13px] !font-semibold hover:!bg-accent-hover"
+          >
+            Solicitar diagnóstico gratuito
+          </Button>
         </Container>
       </section>
     </>

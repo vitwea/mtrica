@@ -14,14 +14,13 @@ type Metric = {
   tone: "success" | "alert";
 };
 
-type ChartView = {
-  kind: "chart";
+type AreaView = {
+  kind: "area";
   label: string;
   metrics: [Metric, Metric];
   chartTitle: string;
-  chartLegend: [string, string];
-  bars: number[];
   line: number[];
+  color: string;
 };
 
 type TableView = {
@@ -30,6 +29,7 @@ type TableView = {
   metrics: [Metric, Metric];
   tableTitle: string;
   rows: { label: string; value: string; percent: number }[];
+  color: string;
 };
 
 type DonutView = {
@@ -40,70 +40,84 @@ type DonutView = {
   centerValue: string;
   centerLabel: string;
   segments: { label: string; value: number; color: string }[];
+  color: string;
 };
 
-type View = ChartView | TableView | DonutView;
+type KpiView = {
+  kind: "kpi";
+  label: string;
+  metrics: [Metric, Metric];
+  kpiTitle: string;
+  kpis: { label: string; value: string }[];
+  color: string;
+};
+
+type View = AreaView | TableView | DonutView | KpiView;
 
 const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"];
 
 const views: View[] = [
   {
-    kind: "chart",
+    kind: "area",
     label: "Ventas y stock",
     metrics: [
       { label: "Ventas del mes", value: "48.200 €", delta: "+12% vs anterior", tone: "success" },
       { label: "Stock crítico", value: "3 SKUs", delta: "Revisar hoy", tone: "alert" },
     ],
     chartTitle: "Ventas mensuales (€)",
-    chartLegend: ["Real", "Previsión"],
-    bars: [55, 48, 62, 58, 70, 82],
     line: [50, 52, 58, 63, 68, 78],
+    color: "#8FB8E8",
   },
   {
     kind: "table",
     label: "Automatización",
     metrics: [
-      { label: "Informes generados", value: "128", delta: "+34% este mes", tone: "success" },
-      { label: "Horas ahorradas", value: "22h", delta: "Esta semana", tone: "success" },
+      { label: "Informes generados", value: "134", delta: "+41% este mes", tone: "success" },
+      { label: "Horas ahorradas", value: "26h", delta: "Esta semana", tone: "success" },
     ],
     tableTitle: "Informes automatizados por área",
     rows: [
-      { label: "Ventas", value: "92%", percent: 92 },
-      { label: "Stock", value: "78%", percent: 78 },
-      { label: "Finanzas", value: "65%", percent: 65 },
+      { label: "Ventas", value: "94%", percent: 94 },
+      { label: "Stock", value: "81%", percent: 81 },
+      { label: "Finanzas", value: "70%", percent: 70 },
     ],
+    color: "#7BC49B",
   },
   {
     kind: "donut",
     label: "Soporte",
     metrics: [
       { label: "Incidencias abiertas", value: "1", delta: "Dentro de SLA", tone: "success" },
-      { label: "Tiempo de respuesta", value: "4h", delta: "Objetivo: 24h", tone: "success" },
+      { label: "Tiempo de respuesta", value: "3h", delta: "Objetivo: 24h", tone: "success" },
     ],
     donutTitle: "Incidencias del mes",
-    centerValue: "87%",
+    centerValue: "91%",
     centerLabel: "Resueltas",
     segments: [
-      { label: "Resueltas", value: 87, color: "#8FB8E8" },
-      { label: "Abiertas", value: 13, color: "#5B6787" },
+      { label: "Resueltas", value: 91, color: "#4C5FFF" },
+      { label: "Abiertas", value: 9, color: "#3A3F5C" },
     ],
+    color: "#4C5FFF",
+  },
+  {
+    kind: "kpi",
+    label: "Mantenimiento",
+    metrics: [
+      { label: "Paneles activos", value: "5", delta: "En 3 áreas", tone: "success" },
+      { label: "Próxima revisión", value: "12 días", delta: "Programada", tone: "success" },
+    ],
+    kpiTitle: "Estado del servicio",
+    kpis: [
+      { label: "Uptime del panel", value: "99,8%" },
+      { label: "Bolsa de horas usada", value: "6/10h" },
+    ],
+    color: "#8FB8E8",
   },
 ];
 
 const ROTATE_MS = 4500;
 const CHART_W = 260;
 const CHART_H = 90;
-const BAR_GAP = 10;
-
-function barPath(values: number[]) {
-  const barWidth = (CHART_W - BAR_GAP * (values.length - 1)) / values.length;
-  return values.map((v, i) => {
-    const height = (v / 100) * CHART_H;
-    const x = i * (barWidth + BAR_GAP);
-    const y = CHART_H - height;
-    return { x, y, width: barWidth, height };
-  });
-}
 
 function linePoints(values: number[]) {
   const step = CHART_W / (values.length - 1);
@@ -113,13 +127,6 @@ function linePoints(values: number[]) {
   }));
 }
 
-// Fase 11: dashboard ilustrativo → dashboard que se LEE como real.
-// Chrome de ventana (puntos mac + nombre de archivo .pbix), 3 tipos de
-// widget distintos por vista (combo bar+línea, tabla de progreso, donut)
-// en vez de un único gráfico repetido, y detalles que solo tiene una
-// herramienta de verdad: gridlines, área degradada, punto destacado en
-// el último dato. El prop `src` sigue intacto para sustituir por
-// capturas reales de Power BI en cuanto existan.
 export default function DashboardPreview({
   src,
   alt = "Panel de control con métricas de ventas y stock",
@@ -153,8 +160,13 @@ export default function DashboardPreview({
   const view = views[index];
 
   return (
-    <div>
-      <div className="overflow-hidden rounded-card bg-navy-card shadow-2xl shadow-black/40">
+    <div className="group relative">
+      <div
+        className="absolute -inset-8 -z-10 rounded-full bg-accent/25 opacity-60 blur-3xl motion-reduce:hidden"
+        aria-hidden="true"
+      />
+
+      <div className="overflow-hidden rounded-card border border-white/[0.08] bg-navy-card shadow-2xl shadow-black/60 transition-transform duration-500 ease-out [transform:perspective(1200px)_rotateY(-4deg)_rotateX(1.5deg)] group-hover:[transform:perspective(1200px)_rotateY(0deg)_rotateX(0deg)] motion-reduce:[transform:none]">
         <div
           className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-4 py-3"
           aria-hidden="true"
@@ -167,7 +179,11 @@ export default function DashboardPreview({
             </div>
             <span className="text-caption text-white/40">panel-mtrica.pbix</span>
           </div>
-          <span className="rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-medium text-white/50">
+          <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-medium text-white/50">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success-light opacity-75 motion-reduce:hidden" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success-light" />
+            </span>
             {view.label}
           </span>
         </div>
@@ -189,9 +205,10 @@ export default function DashboardPreview({
             ))}
           </div>
 
-          {view.kind === "chart" && <ChartBlock view={view} uid={uid} />}
+          {view.kind === "area" && <AreaBlock view={view} uid={uid} />}
           {view.kind === "table" && <TableBlock view={view} />}
           {view.kind === "donut" && <DonutBlock view={view} />}
+          {view.kind === "kpi" && <KpiBlock view={view} />}
         </div>
       </div>
 
@@ -214,8 +231,7 @@ export default function DashboardPreview({
   );
 }
 
-function ChartBlock({ view, uid }: { view: ChartView; uid: string }) {
-  const bars = barPath(view.bars);
+function AreaBlock({ view, uid }: { view: AreaView; uid: string }) {
   const points = linePoints(view.line);
   const lastPoint = points[points.length - 1];
   const linePath = points.map((p) => `${p.x},${p.y}`).join(" ");
@@ -226,25 +242,13 @@ function ChartBlock({ view, uid }: { view: ChartView; uid: string }) {
 
   return (
     <div className="rounded-lg bg-white/[0.06] p-3.5" aria-hidden="true">
-      <div className="mb-2.5 flex items-center justify-between">
-        <p className="text-caption text-white/60">{view.chartTitle}</p>
-        <div className="flex items-center gap-2.5">
-          <span className="flex items-center gap-1 text-caption text-white/50">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#8FB8E8]" />
-            {view.chartLegend[0]}
-          </span>
-          <span className="flex items-center gap-1 text-caption text-white/50">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#5B6787]" />
-            {view.chartLegend[1]}
-          </span>
-        </div>
-      </div>
+      <p className="mb-2.5 text-caption text-white/60">{view.chartTitle}</p>
 
       <svg viewBox={`0 0 ${CHART_W} ${CHART_H}`} className="h-[90px] w-full" preserveAspectRatio="none">
         <defs>
           <linearGradient id={`grad-${uid}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#8FB8E8" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#8FB8E8" stopOpacity="0" />
+            <stop offset="0%" stopColor={view.color} stopOpacity="0.4" />
+            <stop offset="100%" stopColor={view.color} stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -260,29 +264,18 @@ function ChartBlock({ view, uid }: { view: ChartView; uid: string }) {
           />
         ))}
 
-        {bars.map((bar, i) => (
-          <rect
-            key={i}
-            x={bar.x}
-            y={bar.y}
-            width={bar.width}
-            height={bar.height}
-            rx="3"
-            fill="#8FB8E8"
-            fillOpacity={i === bars.length - 1 ? 0.55 : 0.25}
-          />
-        ))}
-
         <path d={areaPath} fill={`url(#grad-${uid})`} />
         <polyline
           points={linePath}
           fill="none"
-          stroke="#8FB8E8"
-          strokeWidth="2"
+          stroke={view.color}
+          strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx={lastPoint.x} cy={lastPoint.y} r="3" fill="#0F1526" stroke="#8FB8E8" strokeWidth="2" />
+        {points.map((p, i) => (
+          <circle key={i} cx={p.x} cy={p.y} r={i === points.length - 1 ? 4 : 2.5} fill={i === points.length - 1 ? "#0F1526" : view.color} stroke={i === points.length - 1 ? view.color : "none"} strokeWidth="2" />
+        ))}
       </svg>
 
       <div className="mt-1.5 flex justify-between">
@@ -308,7 +301,10 @@ function TableBlock({ view }: { view: TableView }) {
               <span className="font-medium text-white/80">{row.value}</span>
             </div>
             <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-              <div className="h-full rounded-full bg-[#8FB8E8]" style={{ width: `${row.percent}%` }} />
+              <div
+                className="h-full rounded-full"
+                style={{ width: `${row.percent}%`, backgroundColor: view.color }}
+              />
             </div>
           </div>
         ))}
@@ -361,6 +357,23 @@ function DonutBlock({ view }: { view: DonutView }) {
             </span>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function KpiBlock({ view }: { view: KpiView }) {
+  return (
+    <div className="rounded-lg bg-white/[0.06] p-3.5" aria-hidden="true">
+      <p className="mb-3 text-caption text-white/60">{view.kpiTitle}</p>
+      <div className="grid grid-cols-2 gap-3">
+        {view.kpis.map((kpi) => (
+          <div key={kpi.label} className="rounded-lg bg-white/[0.05] px-3 py-3.5 text-center">
+            <p className="text-h3 leading-none text-white">{kpi.value}</p>
+            <p className="mt-2 text-caption text-white/50">{kpi.label}</p>
+            <div className="mx-auto mt-2.5 h-[3px] w-8 rounded-full" style={{ backgroundColor: view.color }} />
+          </div>
+        ))}
       </div>
     </div>
   );

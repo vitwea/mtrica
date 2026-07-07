@@ -1,4 +1,5 @@
-import { LucideIcon, Check } from "lucide-react";
+import { LucideIcon, Check, Clock } from "lucide-react";
+import Button from "./Button";
 
 type ServiceDetailProps = {
   id: string;
@@ -24,21 +25,23 @@ export default function ServiceDetail({
   return (
     <div
       id={id}
-      className="scroll-mt-24 flex flex-col rounded-card border border-bone bg-mist p-md md:p-lg"
+      className="group scroll-mt-24 flex flex-col rounded-card border border-bone bg-mist p-md transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card md:p-lg"
     >
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
-          <Icon className="h-5 w-5 text-navy" strokeWidth={1.75} aria-hidden="true" />
+        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-navy shadow-sm transition-colors duration-200 group-hover:bg-navy-hover">
+          <Icon className="h-5 w-5 text-white" strokeWidth={1.75} aria-hidden="true" />
         </div>
         <h2 className="text-h4 text-black">{title}</h2>
       </div>
 
       <p className="mt-3 text-body text-graphite">{problem}</p>
 
-      <ul className="mt-4 flex flex-col gap-2">
+      <ul className="mt-4 flex flex-col gap-2.5">
         {includes.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-ui text-graphite">
-            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-navy" strokeWidth={2} aria-hidden="true" />
+          <li key={item} className="flex items-start gap-2.5 text-ui text-graphite">
+            <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-navy/8">
+              <Check className="h-3 w-3 text-navy" strokeWidth={2.5} aria-hidden="true" />
+            </span>
             <span>{item}</span>
           </li>
         ))}
@@ -46,15 +49,19 @@ export default function ServiceDetail({
 
       <div className="mt-auto pt-5">
         {timeframe && (
-          <p className="mb-3 text-caption text-graphite/70">{timeframe}</p>
+          <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-navy/8 px-3 py-1 text-caption font-medium text-navy">
+            <Clock className="h-3 w-3" strokeWidth={2} aria-hidden="true" />
+            {timeframe}
+          </span>
         )}
 
-        <a
+        <Button
           href={ctaHref}
-          className="text-ui font-medium text-navy hover:underline underline-offset-4"
+          variant="secondary"
+          className="!min-h-[40px] !w-full !rounded-full !px-5 !py-2 !text-[13px] !font-semibold"
         >
-          {ctaLabel} →
-        </a>
+          {ctaLabel}
+        </Button>
       </div>
     </div>
   );

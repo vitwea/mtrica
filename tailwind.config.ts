@@ -24,7 +24,7 @@ const config: Config = {
                 DEFAULT: "#28354F",
                 hover: "#1D2740",
                 950: "#0F1526",
-                card: "#161D33",
+                card: "#1B2440",
               },
 
               // Fondo exterior de página — beige cálido premium
@@ -64,10 +64,15 @@ const config: Config = {
       fontSize: {
         h1: ["48px", { lineHeight: "56px", fontWeight: "700" }],
         h1Mobile: ["34px", { lineHeight: "40px", fontWeight: "700" }],
-        // Fase 6: 36 → 42px — escala insuficiente para una consultora
-        // premium de proyectos 5-20k€ (auditoría, punto E).
+        // Título de página (PageHeader compact) — un escalón entre el h1
+        // de home y los h2Compact de sección interna. Es el h1 de la página,
+        // debe destacar, pero sin el peso de un hero.
+        h1PageCompact: ["32px", { lineHeight: "40px", fontWeight: "700" }],
+        h1PageCompactMobile: ["24px", { lineHeight: "32px", fontWeight: "700" }],
         h2: ["42px", { lineHeight: "48px", fontWeight: "700" }],
         h2Mobile: ["28px", { lineHeight: "36px", fontWeight: "700" }],
+        h2Compact: ["24px", { lineHeight: "32px", fontWeight: "700" }],
+        h2CompactMobile: ["20px", { lineHeight: "28px", fontWeight: "700" }],
         h3: ["28px", { lineHeight: "36px", fontWeight: "600" }],
         h4: ["20px", { lineHeight: "28px", fontWeight: "600" }],
         bodyLg: ["18px", { lineHeight: "28px", fontWeight: "400" }],

@@ -11,6 +11,7 @@ const inter = Inter({
   display: "swap",
 });
 
+
 export const metadata: Metadata = {
   title: "Mtrica — Business Intelligence para pymes",
   description:

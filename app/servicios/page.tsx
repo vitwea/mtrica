@@ -83,7 +83,7 @@ export default function Servicios() {
         compact
       />
 
-      <section className="py-2 md:py-3">
+      <section className="py-sm md:py-md">
         <Container className="!max-w-none">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
             {services.map((service) => (
@@ -95,24 +95,24 @@ export default function Servicios() {
 
       <PricingBlock />
 
-      <section className="rounded-section border border-white/10 bg-navy-hover p-lg shadow-card md:p-xl-mobile">
+      <section className="rounded-section border border-white/10 bg-navy-hover p-sm shadow-card md:p-md">
         <Container className="!px-0 text-center">
-          <h2 className="text-h2Mobile text-white md:text-h2">
+          <h2 className="text-h2CompactMobile text-white md:text-h2Compact">
             ¿No sabes por cuál empezar?
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-bodyLg text-white/60">
+          <p className="mx-auto mt-2 max-w-sm text-ui text-white/60">
             El diagnóstico gratuito de 30 minutos te lo deja claro, sin
             compromiso.
           </p>
-          <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="mt-4 flex flex-col items-center gap-2">
             <Button
               href="/citas"
               variant="primary"
-              className="!min-h-[52px] !bg-accent !px-8 !py-3.5 !text-[15px] !font-semibold !shadow-lg !shadow-accent/25 hover:!bg-accent-hover"
+              className="!min-h-[40px] !rounded-full !bg-accent !px-5 !py-2 !text-[13px] !font-semibold hover:!bg-accent-hover"
             >
               Solicitar diagnóstico gratuito
             </Button>
-            <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[12px] text-white/40">
+            <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-white/40">
               <span>Sin compromiso</span>
               <span>Respuesta en 24h</span>
               <span>100% gratuito</span>

@@ -32,24 +32,24 @@ export default async function ProyectoDetalle({ params }: Props) {
 
   return (
     <>
-      {/* Cabecera del caso */}
-        <section className="rounded-section border border-black/10 bg-white py-sm px-md shadow-card md:py-md md:px-lg">
-          <Container className="!px-0 max-w-3xl">
-            <Link
-              href="/proyectos"
-              className="flex items-center gap-1.5 text-ui text-graphite hover:text-black"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Todos los casos de éxito
-            </Link>
+    {/* Cabecera del caso */}
+    <section className="rounded-section border border-black/10 bg-white py-sm px-md shadow-card md:py-md md:px-lg">
+      <Container className="!px-0 max-w-3xl">
+        <Link
+          href="/proyectos"
+          className="flex items-center gap-1.5 text-ui text-graphite hover:text-black"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Todos los casos de éxito
+        </Link>
 
-            <span className="mt-4 inline-block rounded-full bg-navy/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-navy">
-              {project.sector}
-            </span>
-            <h1 className="mt-2 text-h4Mobile text-black md:text-h3">{project.title}</h1>
-            <p className="mt-2 text-bodyMd text-graphite">{project.clientProfile}</p>
-          </Container>
-        </section>
+        <span className="mt-4 inline-block rounded-full bg-navy/10 px-3 py-1 text-caption font-semibold uppercase tracking-wide text-navy">
+          {project.sector}
+        </span>
+        <h1 className="mt-2 text-h2CompactMobile text-black md:text-h2Compact">{project.title}</h1>
+        <p className="mt-2 text-body text-graphite">{project.clientProfile}</p>
+      </Container>
+    </section>
 
 
     {/* Problema → Solución → Impacto, storyline horizontal */}
@@ -64,14 +64,16 @@ export default async function ProyectoDetalle({ params }: Props) {
 </section>
 
       {/* Panel interactivo */}
-      <section className="rounded-section border border-white/10 bg-navy-950 p-lg shadow-card md:p-xl-mobile">
+      <section className="rounded-section border border-white/10 bg-navy-hover p-md shadow-card md:p-lg">
         <Container className="!px-0 max-w-4xl text-center">
-          <h2 className="text-h3 text-white md:text-h2">Explora el panel interactivo</h2>
+          <h2 className="text-h2CompactMobile text-white md:text-h2Compact">
+            Explora el panel interactivo
+          </h2>
           <p className="mx-auto mt-2 text-body text-white/60">
             Interactúa con los filtros igual que lo haría el cliente — es el mismo Power BI, en directo.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-6">
             <PowerBIEmbed embedUrl={project.powerBiEmbedUrl} title={project.title} />
           </div>
 
@@ -82,19 +84,19 @@ export default async function ProyectoDetalle({ params }: Props) {
       </section>
 
       {/* CTA final */}
-      <section className="rounded-section border border-white/10 bg-navy-hover p-lg shadow-card md:p-xl-mobile">
+      <section className="rounded-section border border-white/10 bg-navy-hover p-sm shadow-card md:p-md">
         <Container className="!px-0 text-center">
-          <h2 className="text-h2Mobile text-white md:text-h2">
-            ¿Quieres resolver algo parecido en tu empresa?
+          <h2 className="text-[20px] font-bold leading-snug text-white md:text-[26px]">
+            ¿Quieres un panel así para tu negocio?
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-bodyLg text-white/60">
-            El diagnóstico gratuito te dice, en 30 minutos, si tu caso encaja
-            y por dónde empezar.
+          <p className="mx-auto mt-2 max-w-sm text-ui text-white/60">
+            Empieza con un diagnóstico gratuito — vemos qué datos tienes y qué
+            dashboard tendría más impacto para ti.
           </p>
           <Button
             href="/citas"
             variant="primary"
-            className="mt-6 !min-h-[52px] !bg-accent !px-8 !py-3.5 !text-[15px] !font-semibold !shadow-lg !shadow-accent/25 hover:!bg-accent-hover"
+            className="mt-4 !min-h-[40px] !rounded-full !bg-accent !px-5 !py-2 !text-[13px] !font-semibold hover:!bg-accent-hover"
           >
             Solicitar diagnóstico gratuito
           </Button>
