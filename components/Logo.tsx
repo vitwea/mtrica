@@ -32,9 +32,9 @@ export default function Logo({ className = "h-7 w-auto" }) {
       <text
         x="120"
         y="140"
-        fontFamily="var(--font-space-grotesk), Arial, sans-serif"
+        fontFamily="Arial, Helvetica, sans-serif"
         fontSize="95"
-        fontWeight="700"
+        fontWeight="750"
         style={{ letterSpacing: "-2px" }}
       >
         trica
@@ -42,7 +42,7 @@ export default function Logo({ className = "h-7 w-auto" }) {
 
       {/* Punto de la "i" recoloreado en accent — superpuesto sobre el
           punto real del glifo para sustituirlo visualmente. */}
-      <circle cx="210" cy="80" r="8.5" className="fill-accent" />
+      <circle cx="198.5" cy="78" r="9" className="fill-accent" />
     </svg>
   );
 }
