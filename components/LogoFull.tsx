@@ -11,35 +11,46 @@ export default function LogoFull({ className = "h-20 w-auto" }) {
       <rect x="76" y="45" width="26" height="95" rx="4" />
 
       <path
-        d="M4 78 C 24 50 52 26 78 16"
+        d="M4 88 C 30 60 55 35 80 21"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="8"
+        className="stroke-accent"
+        strokeWidth="6"
         strokeLinecap="round"
       />
-      <path d="M62 8 L100 0 L92 38 Z" />
+      <g transform="translate(80, 21) rotate(-32)">
+        <path
+          d="M-13 -9 L1 0 L-13 9"
+          fill="none"
+          className="stroke-accent"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
 
       <text
         x="120"
         y="140"
-        fontFamily="Inter, Arial, sans-serif"
-        fontSize="115"
+        fontFamily="var(--font-space-grotesk), Arial, sans-serif"
+        fontSize="95"
         fontWeight="700"
+        style={{ letterSpacing: "-2px" }}
       >
         trica
       </text>
 
       <text
-        x="210"
+        x="165"
         y="200"
         fontFamily="Inter, Arial, sans-serif"
         fontSize="28"
         fontWeight="400"
         textAnchor="middle"
-        style={{ wordSpacing: "32px" }}
+        style={{ wordSpacing: "26px" }}
       >
         Mide. Decide. Crece.
       </text>
+      <circle cx="210" cy="80" r="8.5" className="fill-accent" />
     </svg>
   );
 }

@@ -33,7 +33,7 @@ export default function ProjectStoryline({
     >
       {/* Problema */}
       <div className={`rounded-card border border-red-200 bg-white p-md ${step("delay-0")}`}>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[11px] font-semibold text-red-800">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-caption font-semibold text-red-800">
           <AlertTriangle className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
           El problema
         </span>
@@ -47,7 +47,7 @@ export default function ProjectStoryline({
 
       {/* Solución */}
       <div className={`rounded-card border border-accent/20 bg-white p-md ${step("delay-300")}`}>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-semibold text-accent">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1 text-caption font-semibold text-accent">
           <Lightbulb className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
           La solución
         </span>
@@ -61,7 +61,7 @@ export default function ProjectStoryline({
 
       {/* Impacto — números centrados, apilados, separados por divisores */}
       <div className={`flex h-full flex-col justify-center rounded-card bg-navy p-md ${step("delay-[600ms]")}`}>
-        <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-semibold text-[#C7CDFF]">
+        <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-caption font-semibold text-[#C7CDFF]">
           <BarChart3 className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
           El impacto
         </span>
@@ -72,10 +72,10 @@ export default function ProjectStoryline({
               key={metric.label}
               className={`py-4 text-center ${i > 0 ? "border-t border-white/10" : ""}`}
             >
-              <p className="text-[28px] font-bold leading-none text-white">
+              <p className="text-h3 leading-none text-white">
                 {metric.value}
               </p>
-              <p className="mx-auto mt-2 max-w-[220px] text-[13px] leading-snug text-white/60">
+              <p className="mx-auto mt-2 max-w-[220px] text-caption leading-snug text-white/60">
                 {metric.label}
               </p>
             </div>

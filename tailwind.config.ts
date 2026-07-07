@@ -104,14 +104,13 @@ const config: Config = {
       },
 
       keyframes: {
-        fadein: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+        loadingbar: {
+          "0%, 100%": { transform: "scaleY(0.3)" },
+          "50%": { transform: "scaleY(1)" },
         },
       },
-
       animation: {
-        fadein: "fadein 0.4s ease",
+        loadingbar: "loadingbar 0.9s ease-in-out infinite",
       },
     },
   },

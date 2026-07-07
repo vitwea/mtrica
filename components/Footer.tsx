@@ -1,23 +1,19 @@
 import Link from "next/link";
 import Container from "./Container";
-import LogoFull from "./LogoFull";
 
 export default function Footer() {
   return (
     <footer className="rounded-section border border-black/10 bg-white shadow-card">
-      <Container className="flex flex-col gap-3 py-xs md:py-sm">
-        <div className="flex flex-col items-start justify-between gap-5 sm:flex-row">
-          <div className="max-w-xs">
-            <LogoFull className="h-8 w-auto" />
-            <p className="mt-1.5 text-[11px] text-graphite">
-              Business Intelligence para pymes que quieren decidir con datos claros.
-            </p>
+      <Container className="!max-w-none flex flex-col gap-2 py-xs md:py-sm">
+        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-2.5">
+            <span className="text-ui font-bold text-black">Mtrica</span>
+            <span className="text-[11px] text-graphite/60">
+              Business Intelligence para pymes
+            </span>
           </div>
 
-          <div className="flex flex-col gap-1">
-            <p className="text-[10px] font-medium uppercase tracking-wide text-graphite">
-              Contacto rápido
-            </p>
+          <div className="flex items-center gap-5">
             <a href="mailto:hola@mtrica.com" className="text-[12px] text-graphite hover:text-black">
               hola@mtrica.com
             </a>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
@@ -11,6 +12,12 @@ const inter = Inter({
   display: "swap",
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Mtrica — Business Intelligence para pymes",
@@ -18,9 +25,6 @@ export const metadata: Metadata = {
     "Convertimos los datos dispersos de tu empresa en un panel claro que puedes mirar cada mañana. Diagnóstico de datos gratuito para pymes.",
 };
 
-// Fase 6 (auditoría, punto D): gap exterior sube a md:gap-6 — con md:gap-5
-// el canvas beige entre tarjetas no tenía espacio suficiente para "respirar"
-// como fondo diferenciador.
 export default function RootLayout({
   children,
 }: {
@@ -28,13 +32,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} bg-canvas font-sans`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} bg-canvas font-sans`}>
         <div className="mx-auto flex max-w-[1600px] flex-col gap-4 p-3 md:gap-6 md:p-5">
           <Nav />
           <main className="flex flex-col gap-4 md:gap-6">{children}</main>
           <Footer />
         </div>
         <BackToTop />
+        <Analytics />
       </body>
     </html>
   );

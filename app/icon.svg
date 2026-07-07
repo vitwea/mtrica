@@ -1,0 +1,23 @@
+<svg width="110" height="148" viewBox="0 0 110 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="95" width="26" height="45" rx="4" fill="#0F1526"/>
+  <rect x="38" y="70" width="26" height="70" rx="4" fill="#0F1526"/>
+  <rect x="76" y="45" width="26" height="95" rx="4" fill="#0F1526"/>
+
+  <path
+    d="M4 88 C 30 60 55 35 80 21"
+    fill="none"
+    stroke="#4C5FFF"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <g transform="translate(80, 21) rotate(-32)">
+    <path
+      d="M-15 -10 L2 0 L-15 10"
+      fill="none"
+      stroke="#4C5FFF"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>

@@ -17,13 +17,13 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="rounded-section border border-black/10 bg-white px-5 shadow-card md:px-8">
-      <div className="flex items-center justify-between py-5">
+    <header className="rounded-section border border-black/10 bg-white px-6 shadow-card md:px-8">
+      <div className="flex items-center justify-between py-2">
         <Link href="/" aria-label="Mtrica — inicio" className="transition-opacity hover:opacity-80">
-          <Logo className="h-12 w-auto" />
+          <Logo className="h-10 w-auto" />
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -46,9 +46,9 @@ export default function Nav() {
           <Button
             href="/citas"
             variant="secondary"
-            className="!min-h-[40px] !rounded-full !border-navy !px-5 !py-2 hover:!bg-navy hover:!text-white"
+            className="!min-h-9 !rounded-full !border-navy !px-4 !py-1.5 !text-sm hover:!bg-navy hover:!text-white"
           >
-            Solicitar conultoría
+            Diagnóstico gratis
           </Button>
         </nav>
 

@@ -1,36 +1,48 @@
 export default function Logo({ className = "h-7 w-auto" }) {
   return (
     <svg
-      viewBox="0 0 420 145"
+      viewBox="0 8 420 135"
       className={className}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+
     >
-      {/* Barras */}
       <rect x="0" y="95" width="26" height="45" rx="4" />
       <rect x="38" y="70" width="26" height="70" rx="4" />
       <rect x="76" y="45" width="26" height="95" rx="4" />
 
-      {/* Flecha */}
       <path
-        d="M4 78 C 24 50 52 26 78 16"
+        d="M4 88 C 30 60 55 35 80 21"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="8"
+        className="stroke-accent"
+        strokeWidth="6"
         strokeLinecap="round"
       />
-      <path d="M62 8 L100 0 L92 38 Z" />
+      <g transform="translate(80, 21) rotate(-32)">
+        <path
+          d="M-13 -9 L1 0 L-13 9"
+          fill="none"
+          className="stroke-accent"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
 
-      {/* Texto más pequeño y alineado con la base */}
       <text
         x="120"
         y="140"
-        fontFamily="Inter, Arial, sans-serif"
+        fontFamily="var(--font-space-grotesk), Arial, sans-serif"
         fontSize="95"
         fontWeight="700"
+        style={{ letterSpacing: "-2px" }}
       >
         trica
       </text>
+
+      {/* Punto de la "i" recoloreado en accent — superpuesto sobre el
+          punto real del glifo para sustituirlo visualmente. */}
+      <circle cx="210" cy="80" r="8.5" className="fill-accent" />
     </svg>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { Check } from "lucide-react";
+import LoadingBars from "./LoadingBars";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -16,7 +18,8 @@ export default function ContactForm() {
     setStatus("loading");
     setErrorMessage("");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget; // se guarda ANTES del await, mientras el evento sigue vivo
+    const formData = new FormData(form);
     const payload = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -37,7 +40,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      e.currentTarget.reset();
+      form.reset(); // usa la referencia guardada, no e.currentTarget
     } catch (err) {
       setStatus("error");
       setErrorMessage(
@@ -48,10 +51,13 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-card border border-bone bg-bone/40 p-md text-center">
-        <p className="text-h4 text-black">Mensaje enviado</p>
+      <div className="animate-fadein py-6 text-center">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-success-light/20">
+          <Check className="h-6 w-6 text-success" strokeWidth={2.5} aria-hidden="true" />
+        </div>
+        <p className="mt-4 text-h4 text-black">Mensaje enviado</p>
         <p className="mt-2 text-body text-graphite">
-          Te respondemos en menos de 24h. Gracias por escribirnos.
+          Te respondemos en menos de 24h. <br></br>Gracias por escribirnos.
         </p>
       </div>
     );
@@ -121,9 +127,16 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="mt-2 inline-flex min-h-[44px] items-center justify-center rounded-card bg-navy px-7 py-3.5 text-ui font-medium text-white transition-colors hover:bg-navy-hover disabled:opacity-60"
+        className="mt-2 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-card bg-navy px-7 py-3.5 text-ui font-medium text-white transition-colors hover:bg-navy-hover disabled:opacity-60"
       >
-        {status === "loading" ? "Enviando..." : "Enviar mensaje"}
+        {status === "loading" ? (
+          <>
+            <LoadingBars className="h-3.5 w-3.5" />
+            Enviando...
+          </>
+        ) : (
+          "Enviar mensaje"
+        )}
       </button>
     </form>
   );

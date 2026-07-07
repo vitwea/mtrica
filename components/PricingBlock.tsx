@@ -28,9 +28,9 @@ const tiers = [
 
 export default function PricingBlock() {
   return (
-    <section className="rounded-section border border-black/10 bg-bone p-sm shadow-card md:p-md">
+    <section className="rounded-section border border-black/10 bg-white p-sm shadow-card md:p-md">
       <Container className="!px-0">
-        <h2 className="text-center text-[20px] font-bold leading-snug text-black md:text-[26px]">
+        <h2 className="text-center text-h2CompactMobile text-black md:text-h2Compact">
           Precios
         </h2>
         <p className="mx-auto mt-2 max-w-sm text-center text-ui text-graphite">
@@ -41,12 +41,12 @@ export default function PricingBlock() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-card border bg-white p-sm ${
+              className={`rounded-card border bg-mist p-sm ${
                 tier.featured ? "border-navy border-2" : "border-bone"
               }`}
             >
               {tier.featured && (
-                <span className="mb-2 inline-block rounded-full bg-navy px-2.5 py-0.5 text-[11px] font-medium text-white">
+                <span className="mb-2 inline-block rounded-full bg-navy px-2.5 py-0.5 text-caption font-medium text-white">
                   Más solicitado
                 </span>
               )}
@@ -56,7 +56,7 @@ export default function PricingBlock() {
               <Button
                 href={tier.href}
                 variant={tier.featured ? "primary" : "secondary"}
-                className="mt-3 !min-h-[36px] !w-full !rounded-full !py-1.5 !text-[13px]"
+                className="mt-3 !min-h-9 !w-full !rounded-full !py-1.5 !text-sm"
               >
                 {tier.cta}
               </Button>

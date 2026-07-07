@@ -25,7 +25,7 @@ export default function ServiceDetail({
   return (
     <div
       id={id}
-      className="group scroll-mt-24 flex flex-col rounded-card border border-bone bg-mist p-md transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card md:p-lg"
+      className="group scroll-mt-24 flex flex-col rounded-card border border-bone bg-white p-md shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card md:p-lg"
     >
       <div className="flex items-center gap-3">
         <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-navy shadow-sm transition-colors duration-200 group-hover:bg-navy-hover">

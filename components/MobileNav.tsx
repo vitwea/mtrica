@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Button from "./Button";
 
+const links = [
+  { href: "/servicios", label: "Servicios" },
+  { href: "/proyectos", label: "Proyectos" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/contacto", label: "Contacto" },
+];
+
 export default function MobileNav({ light = false }: { light?: boolean }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="md:hidden">
@@ -37,18 +46,22 @@ export default function MobileNav({ light = false }: { light?: boolean }) {
           </div>
 
           <nav className="mt-10 flex flex-col gap-6">
-            <Link href="/servicios" onClick={() => setOpen(false)} className="text-h4 text-black">
-              Servicios
-            </Link>
-            <Link href="/proyectos" onClick={() => setOpen(false)} className="text-h4 text-black">
-              Proyectos
-            </Link>
-            <Link href="/nosotros" onClick={() => setOpen(false)} className="text-h4 text-black">
-              Nosotros
-            </Link>
-            <Link href="/contacto" onClick={() => setOpen(false)} className="text-h4 text-black">
-              Contacto
-            </Link>
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`flex items-center gap-2.5 text-h4 ${
+                    isActive ? "text-black" : "text-graphite"
+                  }`}
+                >
+                  {isActive && <span className="h-2 w-2 rounded-full bg-accent" />}
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <Button href="/citas" variant="primary" className="mt-10">

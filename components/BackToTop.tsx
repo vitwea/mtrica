@@ -5,9 +5,6 @@ import { ArrowUp } from "lucide-react";
 
 const SHOW_AFTER_PX = 480;
 
-// Botón flotante "volver arriba" — Fase 4. Aparece tras bajar un tramo de
-// la página y sube con scroll suave (respeta prefers-reduced-motion).
-// Vive en app/layout.tsx, así que aparece en todas las páginas.
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
@@ -31,8 +28,10 @@ export default function BackToTop() {
       onClick={handleClick}
       aria-label="Volver arriba"
       tabIndex={visible ? 0 : -1}
-      className={`fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-navy text-white shadow-card transition-opacity duration-200 hover:bg-navy-hover md:bottom-8 md:right-8 ${
-        visible ? "opacity-100" : "pointer-events-none opacity-0"
+      className={`fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-navy text-white shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-hover hover:shadow-lg md:bottom-8 md:right-8 ${
+        visible
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-2 opacity-0"
       }`}
     >
       <ArrowUp className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
