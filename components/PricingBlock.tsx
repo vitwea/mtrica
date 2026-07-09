@@ -44,7 +44,7 @@ export default function PricingBlock() {
             >
               {tier.featured && (
                 <span className="mb-2 inline-block rounded-full bg-navy px-2.5 py-0.5 text-caption font-medium text-white">
-                  Ideals para empezar
+                  Ideal para empezar
                 </span>
               )}
               <p className="text-ui font-semibold text-black">{tier.name}</p>
