@@ -17,7 +17,7 @@ export default function Footer() {
             <a href="mailto:hola@mtrica.com" className="text-[12px] text-graphite hover:text-black">
               hola@mtrica.com
             </a>
-            <Link href="/citas" className="text-[12px] text-accent hover:text-accent-hover underline-offset-4 hover:underline">
+            <Link href="/contacto" className="text-[12px] text-accent hover:text-accent-hover underline-offset-4 hover:underline">
               Reservar diagnóstico →
             </Link>
           </div>
