@@ -17,6 +17,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+  slug: "marea-moda-stock",
+  title: "Stock y rotación de producto",
+  sector: "Retail de moda",
+  clientProfile: "Retailer de moda con tienda física y venta online",
+  resultHeadline: "43% del capital en stock inmovilizado en tallas que casi no se venden",
+  problem: "El stock total parecía sano en los informes mensuales, pero esa media escondía dos problemas opuestos: las tallas más vendidas de los productos estrella sufrían roturas constantes — perdiendo ventas sin que nadie lo notara — mientras el capital se acumulaba en tallas poco habituales que casi nadie compraba.",
+  solution: "Construimos un dashboard que desglosa el stock por talla y producto en vez de mostrar solo el total, con alertas automáticas de riesgo de rotura y un indicador de capital inmovilizado por categoría.",
+  impact: [
+    { value: "87%", label: "del tiempo, los productos más vendidos estaban sin stock suficiente" },
+    { value: "43%", label: "del capital en stock estaba inmovilizado en tallas de baja rotación" },
+    { value: "110.788 €", label: "de capital identificado para liquidar o redistribuir" },
+  ],
+  powerBiEmbedUrl: "https://app.powerbi.com/view?r=eyJrIjoiNDkwZDQyMjItMzE3Mi00ZDc4LWIxN2MtYjgyYjE5ODcxMGY4IiwidCI6IjQxZmMzMjYyLWFhZDAtNDc0Zi05NWZjLTQxNDA5OWE1OGFjNiJ9",
+  },
+  {
   slug: "pyme-ferreteria-concentracion-clientes-margen",
   sector: "Distribución industrial",
   title: "Descubrir de qué cliente depende realmente tu negocio antes de que sea tarde",
