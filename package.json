@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@calcom/embed-react": "^1.5.3",
     "@vercel/analytics": "^2.0.1",
     "lucide-react": "^0.383.0",
     "next": "^16.2.10",
