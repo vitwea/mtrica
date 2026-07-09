@@ -49,11 +49,11 @@ export default function Proyectos() {
             dashboard tendría más impacto para ti.
           </p>
           <Button
-            href="/citas"
+            href="/contacto"
             variant="primary"
             className="mt-4 !min-h-[40px] !rounded-full !bg-accent !px-5 !py-2 !text-[13px] !font-semibold hover:!bg-accent-hover"
           >
-            Solicitar diagnóstico gratuito
+            Solicitar consulta
           </Button>
         </Container>
       </section>

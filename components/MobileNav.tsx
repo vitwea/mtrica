@@ -64,8 +64,8 @@ export default function MobileNav({ light = false }: { light?: boolean }) {
             })}
           </nav>
 
-          <Button href="/citas" variant="primary" className="mt-10">
-            Reservar diagnóstico
+          <Button href="/contacto" variant="primary" className="mt-10">
+            Solicitar consulta
           </Button>
         </div>
       )}

@@ -6,15 +6,15 @@ const tiers = [
     name: "Diagnóstico",
     price: "Gratuito",
     description: "Breve sesión para ver qué datos tienes y qué podría mejorar.",
-    cta: "Reservar consulta",
-    href: "/citas",
+    cta: "Solicita consulta",
+    href: "/contacto",
   },
   {
     name: "Implementación",
     price: "Desde 250 €",
     description: "Cada proyecto se adapta a tus necesidades.\nEl presupuesto final se define tras la consulta inicial",
     cta: "Solicitar presupuesto",
-    href: "/citas",
+    href: "/contacto",
     featured: true,
   },
   {

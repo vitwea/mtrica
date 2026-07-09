@@ -26,7 +26,7 @@ const services = [
     ],
     timeframe: "Entrega en 1 semana",
     ctaLabel: "Empezar con un diagnóstico",
-    ctaHref: "/citas",
+    ctaHref: "/contacto",
   },
   {
     id: "dashboards",
@@ -40,8 +40,8 @@ const services = [
       "Formación básica para tu equipo",
     ],
     timeframe: "Primer dashboard funcional en 2-4 semanas",
-    ctaLabel: "Solicitar consulta gratuita",
-    ctaHref: "/citas",
+    ctaLabel: "Solicitar primera consulta",
+    ctaHref: "/contacto",
   },
   {
     id: "automatizacion",
@@ -105,11 +105,11 @@ export default function Servicios() {
           </p>
           <div className="mt-4 flex flex-col items-center gap-2">
             <Button
-              href="/citas"
+              href="/contacto"
               variant="primary"
               className="!min-h-[40px] !rounded-full !bg-accent !px-5 !py-2 !text-[13px] !font-semibold hover:!bg-accent-hover"
             >
-              Solicitar diagnóstico gratuito
+              Solicitar consulta
             </Button>
           </div>
         </Container>

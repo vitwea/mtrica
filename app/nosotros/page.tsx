@@ -92,11 +92,11 @@ export default function Nosotros() {
             ¿Hablamos de tu proyecto?
           </h2>
           <Button
-            href="/citas"
+            href="/contacto"
             variant="primary"
             className="mt-4 !min-h-9 !rounded-full !bg-accent !px-5 !py-2 !text-sm !font-semibold hover:!bg-accent-hover"
           >
-            Solicitar diagnóstico gratuito
+            Solicitar consulta
           </Button>
         </Container>
       </section>

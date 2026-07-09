@@ -44,11 +44,11 @@ export default function Nav() {
             );
           })}
           <Button
-            href="/citas"
+            href="/contacto"
             variant="secondary"
             className="!min-h-9 !rounded-full !border-navy !px-4 !py-1.5 !text-sm hover:!bg-navy hover:!text-white"
           >
-            Diagnóstico gratis
+            Solicitar consulta
           </Button>
         </nav>
 

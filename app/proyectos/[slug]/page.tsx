@@ -95,15 +95,15 @@ export default async function ProyectoDetalle({ params }: Props) {
             ¿Quieres un panel así para tu negocio?
           </h2>
           <p className="mx-auto mt-2 max-w-sm text-ui text-white/60">
-            Empieza con un diagnóstico gratuito — vemos qué datos tienes y qué
+            Empieza con un diagnóstico — vemos qué datos tienes y qué
             dashboard tendría más impacto para ti.
           </p>
           <Button
-            href="/citas"
+            href="/contacto"
             variant="primary"
             className="mt-4 !min-h-[40px] !rounded-full !bg-accent !px-5 !py-2 !text-[13px] !font-semibold hover:!bg-accent-hover"
           >
-            Solicitar diagnóstico gratuito
+            Solicitar consulta
           </Button>
         </Container>
       </section>

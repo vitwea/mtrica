@@ -33,11 +33,11 @@ export default function Hero() {
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center md:items-start md:justify-start">
               <Button
-                href="/citas"
+                href="/contacto"
                 variant="primary"
                 className="!bg-accent hover:!bg-accent-hover"
               >
-                Analiza tu empresa gratis
+                Analiza tu empresa
               </Button>
 
               <Button
