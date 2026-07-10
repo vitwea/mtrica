@@ -1,19 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 const SHOW_AFTER_PX = 480;
 
 export default function BackToTop() {
-  const [visible, setVisible] = useState(false);
+  const [scrolledPastThreshold, setScrolledPastThreshold] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > SHOW_AFTER_PX);
+    const onScroll = () => setScrolledPastThreshold(window.scrollY > SHOW_AFTER_PX);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { rootMargin: "0px 0px 0px 0px" }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
+  const visible = scrolledPastThreshold && !footerVisible;
 
   const handleClick = () => {
     const reducedMotion = window.matchMedia(
